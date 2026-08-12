@@ -1,0 +1,1 @@
+This folder will be used during testing phase.
