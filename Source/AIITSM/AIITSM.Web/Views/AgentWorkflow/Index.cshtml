@@ -1,0 +1,99 @@
+@model AIITSM.Web.Models.AgentWorkflowModel
+
+@{
+    ViewData["Title"] = "Agent Workflow";
+}
+
+<div class="container mt-4">
+
+    <h1>Agent Workflow</h1>
+
+    <hr />
+
+    @if (TempData["Message"] != null)
+    {
+        <div class="alert alert-success">
+            @TempData["Message"]
+        </div>
+    }
+
+    <div class="card">
+        <div class="card-body">
+
+            <h3>Incident #@Model.IncidentId</h3>
+
+            <p>
+                <strong>Title:</strong>
+                @Model.Title
+            </p>
+
+            <p>
+                <strong>Description:</strong>
+                @Model.Description
+            </p>
+
+            <p>
+                <strong>Priority:</strong>
+                @Model.Priority
+            </p>
+
+            <p>
+                <strong>Status:</strong>
+                @Model.Status
+            </p>
+
+            <p>
+                <strong>Assigned To:</strong>
+                @(Model.AssignedTo?.ToString() ?? "Not Assigned")
+            </p>
+
+            <p>
+                <strong>Comment:</strong>
+                @(Model.Comment ?? "No comments")
+            </p>
+
+            <hr />
+
+            <h4>Update Incident Status</h4>
+
+            <form asp-controller="AgentWorkflow"
+                  asp-action="UpdateStatus"
+                  method="post">
+
+                <input type="hidden"
+                       name="incidentId"
+                       value="@Model.IncidentId" />
+
+                <div class="mb-3">
+                    <label class="form-label">
+                        Select Status
+                    </label>
+
+                    <select name="status"
+                            class="form-select">
+
+                        <option value="Open">Open</option>
+                        <option value="In Progress">
+                            In Progress
+                        </option>
+                        <option value="Resolved">
+                            Resolved
+                        </option>
+                        <option value="Closed">
+                            Closed
+                        </option>
+
+                    </select>
+                </div>
+
+                <button type="submit"
+                        class="btn btn-primary">
+                    Update Status
+                </button>
+
+            </form>
+
+        </div>
+    </div>
+
+</div>
