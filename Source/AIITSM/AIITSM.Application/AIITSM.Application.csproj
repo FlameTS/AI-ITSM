@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AIITSM.Domain\AIITSM.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="01_M1_IdentityAccess\" />
+    <Folder Include="02_M2_IncidentManagement\" />
+    <Folder Include="03_M3_AgentWorkflow\" />
+    <Folder Include="04_M4_Administration\" />
+    <Folder Include="05_M5_Reporting\" />
+    <Folder Include="06_M6_AI\" />
+    <Folder Include="07_M7_Automation\" />
+  </ItemGroup>
+
+</Project>

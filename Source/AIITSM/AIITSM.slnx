@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="AIITSM.Application/AIITSM.Application.csproj" />
+  <Project Path="AIITSM.Domain/AIITSM.Domain.csproj" />
+  <Project Path="AIITSM.Infrastructure/AIITSM.Infrastructure.csproj" />
+  <Project Path="AIITSM.Web/AIITSM.Web.csproj" />
+</Solution>
