@@ -1,0 +1,37 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Scope_Context_Diagram" id="pScClW9S66gvuCy8fea-">
+    <mxGraphModel dx="1022" dy="530" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="0aPLbEmVbD2Hvor_GGBk-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="&lt;div&gt;AI-Powered IT Service Desk &amp;amp;&lt;/div&gt;&lt;div&gt;Incident Management System&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="190" x="340" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="0aPLbEmVbD2Hvor_GGBk-8" edge="1" parent="1" source="0aPLbEmVbD2Hvor_GGBk-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.25;entryDx=0;entryDy=0;curved=1;" target="0aPLbEmVbD2Hvor_GGBk-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="0aPLbEmVbD2Hvor_GGBk-2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Employee" vertex="1">
+          <mxGeometry height="60" width="120" x="80" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="0aPLbEmVbD2Hvor_GGBk-16" edge="1" parent="1" source="0aPLbEmVbD2Hvor_GGBk-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.75;entryDx=0;entryDy=0;curved=1;" target="0aPLbEmVbD2Hvor_GGBk-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="0aPLbEmVbD2Hvor_GGBk-9" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="IT Administrator" vertex="1">
+          <mxGeometry height="60" width="120" x="80" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="0aPLbEmVbD2Hvor_GGBk-19" edge="1" parent="1" source="0aPLbEmVbD2Hvor_GGBk-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=1;entryDx=0;entryDy=0;curved=1;" target="0aPLbEmVbD2Hvor_GGBk-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="0aPLbEmVbD2Hvor_GGBk-11" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="IT Manager" vertex="1">
+          <mxGeometry height="60" width="120" x="80" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="0aPLbEmVbD2Hvor_GGBk-15" edge="1" parent="1" source="0aPLbEmVbD2Hvor_GGBk-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;curved=1;" target="0aPLbEmVbD2Hvor_GGBk-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="0aPLbEmVbD2Hvor_GGBk-13" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Help Desk Agent" vertex="1">
+          <mxGeometry height="60" width="120" x="80" y="160" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
