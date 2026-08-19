@@ -1,12 +1,105 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\BCY 4th Year\\MP Online\\AI-ITSM\\Source\\AIITSM\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{03B55CA9-D8F0-452B-B102-83564C2A576E}|AIITSM.Infrastructure\\AIITSM.Infrastructure.csproj|d:\\bcy 4th year\\mp online\\ai-itsm\\source\\aiitsm\\aiitsm.infrastructure\\aiitsm.infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{03B55CA9-D8F0-452B-B102-83564C2A576E}|AIITSM.Infrastructure\\AIITSM.Infrastructure.csproj|solutionrelative:aiitsm.infrastructure\\aiitsm.infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EDD57E58-4EE6-48D6-BB3B-583B36FC1BEA}|AIITSM.Domain\\AIITSM.Domain.csproj|d:\\bcy 4th year\\mp online\\ai-itsm\\source\\aiitsm\\aiitsm.domain\\aiitsm.domain.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{EDD57E58-4EE6-48D6-BB3B-583B36FC1BEA}|AIITSM.Domain\\AIITSM.Domain.csproj|solutionrelative:aiitsm.domain\\aiitsm.domain.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{03B55CA9-D8F0-452B-B102-83564C2A576E}|AIITSM.Infrastructure\\AIITSM.Infrastructure.csproj|d:\\bcy 4th year\\mp online\\ai-itsm\\source\\aiitsm\\aiitsm.infrastructure\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{03B55CA9-D8F0-452B-B102-83564C2A576E}|AIITSM.Infrastructure\\AIITSM.Infrastructure.csproj|solutionrelative:aiitsm.infrastructure\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EDD57E58-4EE6-48D6-BB3B-583B36FC1BEA}|AIITSM.Domain\\AIITSM.Domain.csproj|d:\\bcy 4th year\\mp online\\ai-itsm\\source\\aiitsm\\aiitsm.domain\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EDD57E58-4EE6-48D6-BB3B-583B36FC1BEA}|AIITSM.Domain\\AIITSM.Domain.csproj|solutionrelative:aiitsm.domain\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F353F20-29C5-4F0E-AAE9-4F8A9FD10BAE}|AIITSM.Application\\AIITSM.Application.csproj|d:\\bcy 4th year\\mp online\\ai-itsm\\source\\aiitsm\\aiitsm.application\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2F353F20-29C5-4F0E-AAE9-4F8A9FD10BAE}|AIITSM.Application\\AIITSM.Application.csproj|solutionrelative:aiitsm.application\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AIITSM.Infrastructure",
+              "DocumentMoniker": "D:\\BCY 4th Year\\MP Online\\AI-ITSM\\Source\\AIITSM\\AIITSM.Infrastructure\\AIITSM.Infrastructure.csproj",
+              "RelativeDocumentMoniker": "AIITSM.Infrastructure\\AIITSM.Infrastructure.csproj",
+              "ToolTip": "D:\\BCY 4th Year\\MP Online\\AI-ITSM\\Source\\AIITSM\\AIITSM.Infrastructure\\AIITSM.Infrastructure.csproj",
+              "RelativeToolTip": "AIITSM.Infrastructure\\AIITSM.Infrastructure.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-08-18T13:33:17.051Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AIITSM.Domain",
+              "DocumentMoniker": "D:\\BCY 4th Year\\MP Online\\AI-ITSM\\Source\\AIITSM\\AIITSM.Domain\\AIITSM.Domain.csproj",
+              "RelativeDocumentMoniker": "AIITSM.Domain\\AIITSM.Domain.csproj",
+              "ToolTip": "D:\\BCY 4th Year\\MP Online\\AI-ITSM\\Source\\AIITSM\\AIITSM.Domain\\AIITSM.Domain.csproj",
+              "RelativeToolTip": "AIITSM.Domain\\AIITSM.Domain.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-08-18T13:30:17.805Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Class1.cs",
+              "DocumentMoniker": "D:\\BCY 4th Year\\MP Online\\AI-ITSM\\Source\\AIITSM\\AIITSM.Infrastructure\\Class1.cs",
+              "RelativeDocumentMoniker": "AIITSM.Infrastructure\\Class1.cs",
+              "ToolTip": "D:\\BCY 4th Year\\MP Online\\AI-ITSM\\Source\\AIITSM\\AIITSM.Infrastructure\\Class1.cs",
+              "RelativeToolTip": "AIITSM.Infrastructure\\Class1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-18T13:24:02.31Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Class1.cs",
+              "DocumentMoniker": "D:\\BCY 4th Year\\MP Online\\AI-ITSM\\Source\\AIITSM\\AIITSM.Domain\\Class1.cs",
+              "RelativeDocumentMoniker": "AIITSM.Domain\\Class1.cs",
+              "ToolTip": "D:\\BCY 4th Year\\MP Online\\AI-ITSM\\Source\\AIITSM\\AIITSM.Domain\\Class1.cs",
+              "RelativeToolTip": "AIITSM.Domain\\Class1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-18T13:23:33.755Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Class1.cs",
+              "DocumentMoniker": "D:\\BCY 4th Year\\MP Online\\AI-ITSM\\Source\\AIITSM\\AIITSM.Application\\Class1.cs",
+              "RelativeDocumentMoniker": "AIITSM.Application\\Class1.cs",
+              "ToolTip": "D:\\BCY 4th Year\\MP Online\\AI-ITSM\\Source\\AIITSM\\AIITSM.Application\\Class1.cs",
+              "RelativeToolTip": "AIITSM.Application\\Class1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-18T13:23:05.287Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }

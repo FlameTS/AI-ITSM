@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AIITSM.Web")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e4946c48829d95c71f04336e22952d7c83912bc0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bba353ab82d542869ec45ec59bff3508c9fe4ad7")]
 [assembly: System.Reflection.AssemblyProductAttribute("AIITSM.Web")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AIITSM.Web")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
