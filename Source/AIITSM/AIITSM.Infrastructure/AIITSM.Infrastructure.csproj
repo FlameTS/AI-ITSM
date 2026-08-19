@@ -12,13 +12,21 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="01_M1_IdentityAccess\" />
     <Folder Include="02_M2_IncidentManagement\" />
     <Folder Include="03_M3_AgentWorkflow\" />
     <Folder Include="04_M4_Administration\" />
     <Folder Include="05_M5_Reporting\" />
     <Folder Include="06_M6_AI\" />
     <Folder Include="07_M7_Automation\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="10.0.11" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="10.0.11" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="10.0.11">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
 
 </Project>

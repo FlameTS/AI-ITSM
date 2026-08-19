@@ -11,13 +11,19 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\01_M1_IdentityAccess\" />
     <Folder Include="Controllers\02_M2_IncidentManagement\" />
     <Folder Include="Controllers\03_M3_AgentWorkflow\" />
     <Folder Include="Controllers\04_M4_Administration\" />
     <Folder Include="Controllers\05_M5_Reporting\" />
     <Folder Include="Controllers\06_M6_AI\" />
     <Folder Include="Controllers\07_M7_Automation\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.11">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
 
 </Project>
