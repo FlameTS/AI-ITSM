@@ -1,26 +1,42 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\BCY 4th Year\\MP Online\\AI-ITSM\\Source\\AIITSM\\",
+  "WorkspaceRootPath": "C:\\Users\\parih\\OneDrive\\Documents\\MP Online\\IT MANAGER\\Source\\AIITSM\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{03B55CA9-D8F0-452B-B102-83564C2A576E}|AIITSM.Infrastructure\\AIITSM.Infrastructure.csproj|d:\\bcy 4th year\\mp online\\ai-itsm\\source\\aiitsm\\aiitsm.infrastructure\\aiitsm.infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{03B55CA9-D8F0-452B-B102-83564C2A576E}|AIITSM.Infrastructure\\AIITSM.Infrastructure.csproj|solutionrelative:aiitsm.infrastructure\\aiitsm.infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{8442D293-189A-7E15-4305-F7CDB24DD995}|AIITSM.Infrastructure\\AIITSM.Infrastructure.csproj|c:\\users\\parih\\onedrive\\documents\\mp online\\it manager\\source\\aiitsm\\aiitsm.infrastructure\\data\\aianalysis.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8442D293-189A-7E15-4305-F7CDB24DD995}|AIITSM.Infrastructure\\AIITSM.Infrastructure.csproj|solutionrelative:aiitsm.infrastructure\\data\\aianalysis.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EDD57E58-4EE6-48D6-BB3B-583B36FC1BEA}|AIITSM.Domain\\AIITSM.Domain.csproj|d:\\bcy 4th year\\mp online\\ai-itsm\\source\\aiitsm\\aiitsm.domain\\aiitsm.domain.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{EDD57E58-4EE6-48D6-BB3B-583B36FC1BEA}|AIITSM.Domain\\AIITSM.Domain.csproj|solutionrelative:aiitsm.domain\\aiitsm.domain.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{8442D293-189A-7E15-4305-F7CDB24DD995}|AIITSM.Infrastructure\\AIITSM.Infrastructure.csproj|c:\\users\\parih\\onedrive\\documents\\mp online\\it manager\\source\\aiitsm\\aiitsm.infrastructure\\data\\itservicedeskcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8442D293-189A-7E15-4305-F7CDB24DD995}|AIITSM.Infrastructure\\AIITSM.Infrastructure.csproj|solutionrelative:aiitsm.infrastructure\\data\\itservicedeskcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{03B55CA9-D8F0-452B-B102-83564C2A576E}|AIITSM.Infrastructure\\AIITSM.Infrastructure.csproj|d:\\bcy 4th year\\mp online\\ai-itsm\\source\\aiitsm\\aiitsm.infrastructure\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{03B55CA9-D8F0-452B-B102-83564C2A576E}|AIITSM.Infrastructure\\AIITSM.Infrastructure.csproj|solutionrelative:aiitsm.infrastructure\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8442D293-189A-7E15-4305-F7CDB24DD995}|AIITSM.Infrastructure\\AIITSM.Infrastructure.csproj|c:\\users\\parih\\onedrive\\documents\\mp online\\it manager\\source\\aiitsm\\aiitsm.infrastructure\\aiitsm.infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{8442D293-189A-7E15-4305-F7CDB24DD995}|AIITSM.Infrastructure\\AIITSM.Infrastructure.csproj|solutionrelative:aiitsm.infrastructure\\aiitsm.infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EDD57E58-4EE6-48D6-BB3B-583B36FC1BEA}|AIITSM.Domain\\AIITSM.Domain.csproj|d:\\bcy 4th year\\mp online\\ai-itsm\\source\\aiitsm\\aiitsm.domain\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EDD57E58-4EE6-48D6-BB3B-583B36FC1BEA}|AIITSM.Domain\\AIITSM.Domain.csproj|solutionrelative:aiitsm.domain\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8442D293-189A-7E15-4305-F7CDB24DD995}|AIITSM.Infrastructure\\AIITSM.Infrastructure.csproj|c:\\users\\parih\\onedrive\\documents\\mp online\\it manager\\source\\aiitsm\\aiitsm.infrastructure\\07_m7_automation\\automationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8442D293-189A-7E15-4305-F7CDB24DD995}|AIITSM.Infrastructure\\AIITSM.Infrastructure.csproj|solutionrelative:aiitsm.infrastructure\\07_m7_automation\\automationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2F353F20-29C5-4F0E-AAE9-4F8A9FD10BAE}|AIITSM.Application\\AIITSM.Application.csproj|d:\\bcy 4th year\\mp online\\ai-itsm\\source\\aiitsm\\aiitsm.application\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2F353F20-29C5-4F0E-AAE9-4F8A9FD10BAE}|AIITSM.Application\\AIITSM.Application.csproj|solutionrelative:aiitsm.application\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{24D8A96B-3C63-97B1-9BCD-B11BAA367AD7}|AIITSM.Application\\AIITSM.Application.csproj|c:\\users\\parih\\onedrive\\documents\\mp online\\it manager\\source\\aiitsm\\aiitsm.application\\07_m7_automation\\iautomationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{24D8A96B-3C63-97B1-9BCD-B11BAA367AD7}|AIITSM.Application\\AIITSM.Application.csproj|solutionrelative:aiitsm.application\\07_m7_automation\\iautomationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3E05F3F4-FFE6-CF28-11E9-58E25BA304B9}|AIITSM.Domain\\AIITSM.Domain.csproj|c:\\users\\parih\\onedrive\\documents\\mp online\\it manager\\source\\aiitsm\\aiitsm.domain\\aiitsm.domain.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{3E05F3F4-FFE6-CF28-11E9-58E25BA304B9}|AIITSM.Domain\\AIITSM.Domain.csproj|solutionrelative:aiitsm.domain\\aiitsm.domain.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8442D293-189A-7E15-4305-F7CDB24DD995}|AIITSM.Infrastructure\\AIITSM.Infrastructure.csproj|c:\\users\\parih\\onedrive\\documents\\mp online\\it manager\\source\\aiitsm\\aiitsm.infrastructure\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8442D293-189A-7E15-4305-F7CDB24DD995}|AIITSM.Infrastructure\\AIITSM.Infrastructure.csproj|solutionrelative:aiitsm.infrastructure\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3E05F3F4-FFE6-CF28-11E9-58E25BA304B9}|AIITSM.Domain\\AIITSM.Domain.csproj|c:\\users\\parih\\onedrive\\documents\\mp online\\it manager\\source\\aiitsm\\aiitsm.domain\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3E05F3F4-FFE6-CF28-11E9-58E25BA304B9}|AIITSM.Domain\\AIITSM.Domain.csproj|solutionrelative:aiitsm.domain\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{24D8A96B-3C63-97B1-9BCD-B11BAA367AD7}|AIITSM.Application\\AIITSM.Application.csproj|c:\\users\\parih\\onedrive\\documents\\mp online\\it manager\\source\\aiitsm\\aiitsm.application\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{24D8A96B-3C63-97B1-9BCD-B11BAA367AD7}|AIITSM.Application\\AIITSM.Application.csproj|solutionrelative:aiitsm.application\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -35,67 +51,112 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "AIITSM.Infrastructure",
-              "DocumentMoniker": "D:\\BCY 4th Year\\MP Online\\AI-ITSM\\Source\\AIITSM\\AIITSM.Infrastructure\\AIITSM.Infrastructure.csproj",
-              "RelativeDocumentMoniker": "AIITSM.Infrastructure\\AIITSM.Infrastructure.csproj",
-              "ToolTip": "D:\\BCY 4th Year\\MP Online\\AI-ITSM\\Source\\AIITSM\\AIITSM.Infrastructure\\AIITSM.Infrastructure.csproj",
-              "RelativeToolTip": "AIITSM.Infrastructure\\AIITSM.Infrastructure.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-08-18T13:33:17.051Z",
+              "Title": "Aianalysis.cs",
+              "DocumentMoniker": "C:\\Users\\parih\\OneDrive\\Documents\\MP Online\\IT MANAGER\\Source\\AIITSM\\AIITSM.Infrastructure\\Data\\Aianalysis.cs",
+              "RelativeDocumentMoniker": "AIITSM.Infrastructure\\Data\\Aianalysis.cs",
+              "ToolTip": "C:\\Users\\parih\\OneDrive\\Documents\\MP Online\\IT MANAGER\\Source\\AIITSM\\AIITSM.Infrastructure\\Data\\Aianalysis.cs",
+              "RelativeToolTip": "AIITSM.Infrastructure\\Data\\Aianalysis.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAzwBMAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-20T12:23:07.713Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "AIITSM.Domain",
-              "DocumentMoniker": "D:\\BCY 4th Year\\MP Online\\AI-ITSM\\Source\\AIITSM\\AIITSM.Domain\\AIITSM.Domain.csproj",
-              "RelativeDocumentMoniker": "AIITSM.Domain\\AIITSM.Domain.csproj",
-              "ToolTip": "D:\\BCY 4th Year\\MP Online\\AI-ITSM\\Source\\AIITSM\\AIITSM.Domain\\AIITSM.Domain.csproj",
-              "RelativeToolTip": "AIITSM.Domain\\AIITSM.Domain.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-08-18T13:30:17.805Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Class1.cs",
-              "DocumentMoniker": "D:\\BCY 4th Year\\MP Online\\AI-ITSM\\Source\\AIITSM\\AIITSM.Infrastructure\\Class1.cs",
-              "RelativeDocumentMoniker": "AIITSM.Infrastructure\\Class1.cs",
-              "ToolTip": "D:\\BCY 4th Year\\MP Online\\AI-ITSM\\Source\\AIITSM\\AIITSM.Infrastructure\\Class1.cs",
-              "RelativeToolTip": "AIITSM.Infrastructure\\Class1.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAFAAAAAAAAAA==",
+              "Title": "ITServiceDeskContext.cs",
+              "DocumentMoniker": "C:\\Users\\parih\\OneDrive\\Documents\\MP Online\\IT MANAGER\\Source\\AIITSM\\AIITSM.Infrastructure\\Data\\ITServiceDeskContext.cs",
+              "RelativeDocumentMoniker": "AIITSM.Infrastructure\\Data\\ITServiceDeskContext.cs",
+              "ToolTip": "C:\\Users\\parih\\OneDrive\\Documents\\MP Online\\IT MANAGER\\Source\\AIITSM\\AIITSM.Infrastructure\\Data\\ITServiceDeskContext.cs",
+              "RelativeToolTip": "AIITSM.Infrastructure\\Data\\ITServiceDeskContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAPMAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-18T13:24:02.31Z",
+              "WhenOpened": "2026-08-19T07:14:14.124Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "Class1.cs",
-              "DocumentMoniker": "D:\\BCY 4th Year\\MP Online\\AI-ITSM\\Source\\AIITSM\\AIITSM.Domain\\Class1.cs",
-              "RelativeDocumentMoniker": "AIITSM.Domain\\Class1.cs",
-              "ToolTip": "D:\\BCY 4th Year\\MP Online\\AI-ITSM\\Source\\AIITSM\\AIITSM.Domain\\Class1.cs",
-              "RelativeToolTip": "AIITSM.Domain\\Class1.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "AutomationService.cs",
+              "DocumentMoniker": "C:\\Users\\parih\\OneDrive\\Documents\\MP Online\\IT MANAGER\\Source\\AIITSM\\AIITSM.Infrastructure\\07_M7_Automation\\AutomationService.cs",
+              "RelativeDocumentMoniker": "AIITSM.Infrastructure\\07_M7_Automation\\AutomationService.cs",
+              "ToolTip": "C:\\Users\\parih\\OneDrive\\Documents\\MP Online\\IT MANAGER\\Source\\AIITSM\\AIITSM.Infrastructure\\07_M7_Automation\\AutomationService.cs",
+              "RelativeToolTip": "AIITSM.Infrastructure\\07_M7_Automation\\AutomationService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-18T13:23:33.755Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-18T20:07:18.614Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
+              "Title": "IAutomationService.cs",
+              "DocumentMoniker": "C:\\Users\\parih\\OneDrive\\Documents\\MP Online\\IT MANAGER\\Source\\AIITSM\\AIITSM.Application\\07_M7_Automation\\IAutomationService.cs",
+              "RelativeDocumentMoniker": "AIITSM.Application\\07_M7_Automation\\IAutomationService.cs",
+              "ToolTip": "C:\\Users\\parih\\OneDrive\\Documents\\MP Online\\IT MANAGER\\Source\\AIITSM\\AIITSM.Application\\07_M7_Automation\\IAutomationService.cs",
+              "RelativeToolTip": "AIITSM.Application\\07_M7_Automation\\IAutomationService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-18T20:05:10.37Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AIITSM.Infrastructure.csproj",
+              "DocumentMoniker": "C:\\Users\\parih\\OneDrive\\Documents\\MP Online\\IT MANAGER\\Source\\AIITSM\\AIITSM.Infrastructure\\AIITSM.Infrastructure.csproj",
+              "RelativeDocumentMoniker": "AIITSM.Infrastructure\\AIITSM.Infrastructure.csproj",
+              "ToolTip": "C:\\Users\\parih\\OneDrive\\Documents\\MP Online\\IT MANAGER\\Source\\AIITSM\\AIITSM.Infrastructure\\AIITSM.Infrastructure.csproj",
+              "RelativeToolTip": "AIITSM.Infrastructure\\AIITSM.Infrastructure.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-08-18T13:33:17.051Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AIITSM.Domain.csproj",
+              "DocumentMoniker": "C:\\Users\\parih\\OneDrive\\Documents\\MP Online\\IT MANAGER\\Source\\AIITSM\\AIITSM.Domain\\AIITSM.Domain.csproj",
+              "RelativeDocumentMoniker": "AIITSM.Domain\\AIITSM.Domain.csproj",
+              "ToolTip": "C:\\Users\\parih\\OneDrive\\Documents\\MP Online\\IT MANAGER\\Source\\AIITSM\\AIITSM.Domain\\AIITSM.Domain.csproj",
+              "RelativeToolTip": "AIITSM.Domain\\AIITSM.Domain.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-08-18T13:30:17.805Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "Class1.cs",
-              "DocumentMoniker": "D:\\BCY 4th Year\\MP Online\\AI-ITSM\\Source\\AIITSM\\AIITSM.Application\\Class1.cs",
+              "DocumentMoniker": "C:\\Users\\parih\\OneDrive\\Documents\\MP Online\\IT MANAGER\\Source\\AIITSM\\AIITSM.Infrastructure\\Class1.cs",
+              "RelativeDocumentMoniker": "AIITSM.Infrastructure\\Class1.cs",
+              "ToolTip": "C:\\Users\\parih\\OneDrive\\Documents\\MP Online\\IT MANAGER\\Source\\AIITSM\\AIITSM.Infrastructure\\Class1.cs",
+              "RelativeToolTip": "AIITSM.Infrastructure\\Class1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-18T13:24:02.31Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Class1.cs",
+              "DocumentMoniker": "C:\\Users\\parih\\OneDrive\\Documents\\MP Online\\IT MANAGER\\Source\\AIITSM\\AIITSM.Domain\\Class1.cs",
+              "RelativeDocumentMoniker": "AIITSM.Domain\\Class1.cs",
+              "ToolTip": "C:\\Users\\parih\\OneDrive\\Documents\\MP Online\\IT MANAGER\\Source\\AIITSM\\AIITSM.Domain\\Class1.cs",
+              "RelativeToolTip": "AIITSM.Domain\\Class1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-18T13:23:33.755Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Class1.cs",
+              "DocumentMoniker": "C:\\Users\\parih\\OneDrive\\Documents\\MP Online\\IT MANAGER\\Source\\AIITSM\\AIITSM.Application\\Class1.cs",
               "RelativeDocumentMoniker": "AIITSM.Application\\Class1.cs",
-              "ToolTip": "D:\\BCY 4th Year\\MP Online\\AI-ITSM\\Source\\AIITSM\\AIITSM.Application\\Class1.cs",
+              "ToolTip": "C:\\Users\\parih\\OneDrive\\Documents\\MP Online\\IT MANAGER\\Source\\AIITSM\\AIITSM.Application\\Class1.cs",
               "RelativeToolTip": "AIITSM.Application\\Class1.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-18T13:23:05.287Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-18T13:23:05.287Z"
             }
           ]
         }

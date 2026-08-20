@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\BCY 4th Year\\MP Online\\AI-ITSM\\Source\\AIITSM\\AIITSM.Domain\\AIITSM.Domain.csproj": {}
+    "C:\\Users\\parih\\OneDrive\\Documents\\MP Online\\IT MANAGER\\Source\\AIITSM\\AIITSM.Domain\\AIITSM.Domain.csproj": {}
   },
   "projects": {
-    "D:\\BCY 4th Year\\MP Online\\AI-ITSM\\Source\\AIITSM\\AIITSM.Domain\\AIITSM.Domain.csproj": {
+    "C:\\Users\\parih\\OneDrive\\Documents\\MP Online\\IT MANAGER\\Source\\AIITSM\\AIITSM.Domain\\AIITSM.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\BCY 4th Year\\MP Online\\AI-ITSM\\Source\\AIITSM\\AIITSM.Domain\\AIITSM.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\parih\\OneDrive\\Documents\\MP Online\\IT MANAGER\\Source\\AIITSM\\AIITSM.Domain\\AIITSM.Domain.csproj",
         "projectName": "AIITSM.Domain",
-        "projectPath": "D:\\BCY 4th Year\\MP Online\\AI-ITSM\\Source\\AIITSM\\AIITSM.Domain\\AIITSM.Domain.csproj",
-        "packagesPath": "C:\\Users\\sohal\\.nuget\\packages\\",
-        "outputPath": "D:\\BCY 4th Year\\MP Online\\AI-ITSM\\Source\\AIITSM\\AIITSM.Domain\\obj\\",
+        "projectPath": "C:\\Users\\parih\\OneDrive\\Documents\\MP Online\\IT MANAGER\\Source\\AIITSM\\AIITSM.Domain\\AIITSM.Domain.csproj",
+        "packagesPath": "C:\\Users\\parih\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\parih\\OneDrive\\Documents\\MP Online\\IT MANAGER\\Source\\AIITSM\\AIITSM.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\sohal\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\parih\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -45,7 +45,7 @@
           "auditLevel": "low",
           "auditMode": "all"
         },
-        "SdkAnalysisLevel": "10.0.300"
+        "SdkAnalysisLevel": "10.0.400"
       },
       "frameworks": {
         "net10.0": {
@@ -67,7 +67,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.302/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.400/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.CSharp": "(,4.7.32767]",
             "Microsoft.VisualBasic": "(,10.4.32767]",

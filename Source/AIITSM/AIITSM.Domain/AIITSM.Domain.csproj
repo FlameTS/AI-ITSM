@@ -14,6 +14,7 @@
     <Folder Include="05_M5_Reporting\" />
     <Folder Include="06_M6_AI\" />
     <Folder Include="07_M7_Automation\" />
+    <Folder Include="07_M7_Automation\" />
   </ItemGroup>
 
 </Project>
