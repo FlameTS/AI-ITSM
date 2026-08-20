@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AIITSM.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bba353ab82d542869ec45ec59bff3508c9fe4ad7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cb6224e7d6d28bc04206e2ad83faca41777afe2c")]
 [assembly: System.Reflection.AssemblyProductAttribute("AIITSM.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AIITSM.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

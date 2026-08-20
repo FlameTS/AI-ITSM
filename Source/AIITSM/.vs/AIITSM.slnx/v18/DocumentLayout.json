@@ -3,40 +3,24 @@
   "WorkspaceRootPath": "D:\\BCY 4th Year\\MP Online\\AI-ITSM\\Source\\AIITSM\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3E05F3F4-FFE6-CF28-11E9-58E25BA304B9}|AIITSM.Domain\\AIITSM.Domain.csproj|d:\\bcy 4th year\\mp online\\ai-itsm\\source\\aiitsm\\aiitsm.domain\\06_m6_ai\\aianalysisrelatedincident.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3E05F3F4-FFE6-CF28-11E9-58E25BA304B9}|AIITSM.Domain\\AIITSM.Domain.csproj|solutionrelative:aiitsm.domain\\06_m6_ai\\aianalysisrelatedincident.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8442D293-189A-7E15-4305-F7CDB24DD995}|AIITSM.Infrastructure\\AIITSM.Infrastructure.csproj|d:\\bcy 4th year\\mp online\\ai-itsm\\source\\aiitsm\\aiitsm.infrastructure\\06_m6_ai\\aiitsmdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8442D293-189A-7E15-4305-F7CDB24DD995}|AIITSM.Infrastructure\\AIITSM.Infrastructure.csproj|solutionrelative:aiitsm.infrastructure\\06_m6_ai\\aiitsmdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3E05F3F4-FFE6-CF28-11E9-58E25BA304B9}|AIITSM.Domain\\AIITSM.Domain.csproj|d:\\bcy 4th year\\mp online\\ai-itsm\\source\\aiitsm\\aiitsm.domain\\06_m6_ai\\aianalysisstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3E05F3F4-FFE6-CF28-11E9-58E25BA304B9}|AIITSM.Domain\\AIITSM.Domain.csproj|solutionrelative:aiitsm.domain\\06_m6_ai\\aianalysisstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8442D293-189A-7E15-4305-F7CDB24DD995}|AIITSM.Infrastructure\\AIITSM.Infrastructure.csproj|d:\\bcy 4th year\\mp online\\ai-itsm\\source\\aiitsm\\aiitsm.infrastructure\\06_m6_ai\\configurations\\aianalysisrelatedincidentconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8442D293-189A-7E15-4305-F7CDB24DD995}|AIITSM.Infrastructure\\AIITSM.Infrastructure.csproj|solutionrelative:aiitsm.infrastructure\\06_m6_ai\\configurations\\aianalysisrelatedincidentconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3E05F3F4-FFE6-CF28-11E9-58E25BA304B9}|AIITSM.Domain\\AIITSM.Domain.csproj|d:\\bcy 4th year\\mp online\\ai-itsm\\source\\aiitsm\\aiitsm.domain\\06_m6_ai\\aiincidentrelationshiptype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3E05F3F4-FFE6-CF28-11E9-58E25BA304B9}|AIITSM.Domain\\AIITSM.Domain.csproj|solutionrelative:aiitsm.domain\\06_m6_ai\\aiincidentrelationshiptype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8442D293-189A-7E15-4305-F7CDB24DD995}|AIITSM.Infrastructure\\AIITSM.Infrastructure.csproj|d:\\bcy 4th year\\mp online\\ai-itsm\\source\\aiitsm\\aiitsm.infrastructure\\06_m6_ai\\configurations\\aianalysisconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8442D293-189A-7E15-4305-F7CDB24DD995}|AIITSM.Infrastructure\\AIITSM.Infrastructure.csproj|solutionrelative:aiitsm.infrastructure\\06_m6_ai\\configurations\\aianalysisconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3E05F3F4-FFE6-CF28-11E9-58E25BA304B9}|AIITSM.Domain\\AIITSM.Domain.csproj|d:\\bcy 4th year\\mp online\\ai-itsm\\source\\aiitsm\\aiitsm.domain\\06_m6_ai\\aianalysis.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3E05F3F4-FFE6-CF28-11E9-58E25BA304B9}|AIITSM.Domain\\AIITSM.Domain.csproj|solutionrelative:aiitsm.domain\\06_m6_ai\\aianalysis.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{24D8A96B-3C63-97B1-9BCD-B11BAA367AD7}|AIITSM.Application\\AIITSM.Application.csproj|d:\\bcy 4th year\\mp online\\ai-itsm\\source\\aiitsm\\aiitsm.application\\06_m6_ai\\services\\iaianalysisservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{24D8A96B-3C63-97B1-9BCD-B11BAA367AD7}|AIITSM.Application\\AIITSM.Application.csproj|solutionrelative:aiitsm.application\\06_m6_ai\\services\\iaianalysisservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8442D293-189A-7E15-4305-F7CDB24DD995}|AIITSM.Infrastructure\\AIITSM.Infrastructure.csproj|d:\\bcy 4th year\\mp online\\ai-itsm\\source\\aiitsm\\aiitsm.infrastructure\\aiitsm.infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{8442D293-189A-7E15-4305-F7CDB24DD995}|AIITSM.Infrastructure\\AIITSM.Infrastructure.csproj|solutionrelative:aiitsm.infrastructure\\aiitsm.infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3E05F3F4-FFE6-CF28-11E9-58E25BA304B9}|AIITSM.Domain\\AIITSM.Domain.csproj|d:\\bcy 4th year\\mp online\\ai-itsm\\source\\aiitsm\\aiitsm.domain\\aiitsm.domain.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{3E05F3F4-FFE6-CF28-11E9-58E25BA304B9}|AIITSM.Domain\\AIITSM.Domain.csproj|solutionrelative:aiitsm.domain\\aiitsm.domain.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8442D293-189A-7E15-4305-F7CDB24DD995}|AIITSM.Infrastructure\\AIITSM.Infrastructure.csproj|d:\\bcy 4th year\\mp online\\ai-itsm\\source\\aiitsm\\aiitsm.infrastructure\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8442D293-189A-7E15-4305-F7CDB24DD995}|AIITSM.Infrastructure\\AIITSM.Infrastructure.csproj|solutionrelative:aiitsm.infrastructure\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3E05F3F4-FFE6-CF28-11E9-58E25BA304B9}|AIITSM.Domain\\AIITSM.Domain.csproj|d:\\bcy 4th year\\mp online\\ai-itsm\\source\\aiitsm\\aiitsm.domain\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3E05F3F4-FFE6-CF28-11E9-58E25BA304B9}|AIITSM.Domain\\AIITSM.Domain.csproj|solutionrelative:aiitsm.domain\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{24D8A96B-3C63-97B1-9BCD-B11BAA367AD7}|AIITSM.Application\\AIITSM.Application.csproj|d:\\bcy 4th year\\mp online\\ai-itsm\\source\\aiitsm\\aiitsm.application\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{24D8A96B-3C63-97B1-9BCD-B11BAA367AD7}|AIITSM.Application\\AIITSM.Application.csproj|solutionrelative:aiitsm.application\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{24D8A96B-3C63-97B1-9BCD-B11BAA367AD7}|AIITSM.Application\\AIITSM.Application.csproj|d:\\bcy 4th year\\mp online\\ai-itsm\\source\\aiitsm\\aiitsm.application\\06_m6_ai\\contracts\\analyzeincidentrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{24D8A96B-3C63-97B1-9BCD-B11BAA367AD7}|AIITSM.Application\\AIITSM.Application.csproj|solutionrelative:aiitsm.application\\06_m6_ai\\contracts\\analyzeincidentrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -46,121 +30,72 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "AIAnalysisStatus.cs",
-              "DocumentMoniker": "D:\\BCY 4th Year\\MP Online\\AI-ITSM\\Source\\AIITSM\\AIITSM.Domain\\06_M6_AI\\AIAnalysisStatus.cs",
-              "RelativeDocumentMoniker": "AIITSM.Domain\\06_M6_AI\\AIAnalysisStatus.cs",
-              "ToolTip": "D:\\BCY 4th Year\\MP Online\\AI-ITSM\\Source\\AIITSM\\AIITSM.Domain\\06_M6_AI\\AIAnalysisStatus.cs",
-              "RelativeToolTip": "AIITSM.Domain\\06_M6_AI\\AIAnalysisStatus.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAOAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "AIITSMDbContext.cs",
+              "DocumentMoniker": "D:\\BCY 4th Year\\MP Online\\AI-ITSM\\Source\\AIITSM\\AIITSM.Infrastructure\\06_M6_AI\\AIITSMDbContext.cs",
+              "RelativeDocumentMoniker": "AIITSM.Infrastructure\\06_M6_AI\\AIITSMDbContext.cs",
+              "ToolTip": "D:\\BCY 4th Year\\MP Online\\AI-ITSM\\Source\\AIITSM\\AIITSM.Infrastructure\\06_M6_AI\\AIITSMDbContext.cs",
+              "RelativeToolTip": "AIITSM.Infrastructure\\06_M6_AI\\AIITSMDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-19T08:24:39.38Z",
+              "WhenOpened": "2026-08-20T09:41:34.761Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "AIAnalysisRelatedIncident.cs",
-              "DocumentMoniker": "D:\\BCY 4th Year\\MP Online\\AI-ITSM\\Source\\AIITSM\\AIITSM.Domain\\06_M6_AI\\AIAnalysisRelatedIncident.cs",
-              "RelativeDocumentMoniker": "AIITSM.Domain\\06_M6_AI\\AIAnalysisRelatedIncident.cs",
-              "ToolTip": "D:\\BCY 4th Year\\MP Online\\AI-ITSM\\Source\\AIITSM\\AIITSM.Domain\\06_M6_AI\\AIAnalysisRelatedIncident.cs",
-              "RelativeToolTip": "AIITSM.Domain\\06_M6_AI\\AIAnalysisRelatedIncident.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "AIAnalysisRelatedIncidentConfiguration.cs",
+              "DocumentMoniker": "D:\\BCY 4th Year\\MP Online\\AI-ITSM\\Source\\AIITSM\\AIITSM.Infrastructure\\06_M6_AI\\Configurations\\AIAnalysisRelatedIncidentConfiguration.cs",
+              "RelativeDocumentMoniker": "AIITSM.Infrastructure\\06_M6_AI\\Configurations\\AIAnalysisRelatedIncidentConfiguration.cs",
+              "ToolTip": "D:\\BCY 4th Year\\MP Online\\AI-ITSM\\Source\\AIITSM\\AIITSM.Infrastructure\\06_M6_AI\\Configurations\\AIAnalysisRelatedIncidentConfiguration.cs",
+              "RelativeToolTip": "AIITSM.Infrastructure\\06_M6_AI\\Configurations\\AIAnalysisRelatedIncidentConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-19T08:59:39.632Z",
+              "WhenOpened": "2026-08-20T09:50:28.794Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "AIIncidentRelationshipType.cs",
-              "DocumentMoniker": "D:\\BCY 4th Year\\MP Online\\AI-ITSM\\Source\\AIITSM\\AIITSM.Domain\\06_M6_AI\\AIIncidentRelationshipType.cs",
-              "RelativeDocumentMoniker": "AIITSM.Domain\\06_M6_AI\\AIIncidentRelationshipType.cs",
-              "ToolTip": "D:\\BCY 4th Year\\MP Online\\AI-ITSM\\Source\\AIITSM\\AIITSM.Domain\\06_M6_AI\\AIIncidentRelationshipType.cs",
-              "RelativeToolTip": "AIITSM.Domain\\06_M6_AI\\AIIncidentRelationshipType.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAARAAAAAAAAAA==",
+              "Title": "AIAnalysisConfiguration.cs",
+              "DocumentMoniker": "D:\\BCY 4th Year\\MP Online\\AI-ITSM\\Source\\AIITSM\\AIITSM.Infrastructure\\06_M6_AI\\Configurations\\AIAnalysisConfiguration.cs",
+              "RelativeDocumentMoniker": "AIITSM.Infrastructure\\06_M6_AI\\Configurations\\AIAnalysisConfiguration.cs",
+              "ToolTip": "D:\\BCY 4th Year\\MP Online\\AI-ITSM\\Source\\AIITSM\\AIITSM.Infrastructure\\06_M6_AI\\Configurations\\AIAnalysisConfiguration.cs",
+              "RelativeToolTip": "AIITSM.Infrastructure\\06_M6_AI\\Configurations\\AIAnalysisConfiguration.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAiwCMAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-19T09:21:38.603Z",
+              "WhenOpened": "2026-08-20T09:49:03.658Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "AIAnalysis.cs",
-              "DocumentMoniker": "D:\\BCY 4th Year\\MP Online\\AI-ITSM\\Source\\AIITSM\\AIITSM.Domain\\06_M6_AI\\AIAnalysis.cs",
-              "RelativeDocumentMoniker": "AIITSM.Domain\\06_M6_AI\\AIAnalysis.cs",
-              "ToolTip": "D:\\BCY 4th Year\\MP Online\\AI-ITSM\\Source\\AIITSM\\AIITSM.Domain\\06_M6_AI\\AIAnalysis.cs",
-              "RelativeToolTip": "AIITSM.Domain\\06_M6_AI\\AIAnalysis.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAzAAAAAAAAAA==",
+              "Title": "IAIAnalysisService.cs",
+              "DocumentMoniker": "D:\\BCY 4th Year\\MP Online\\AI-ITSM\\Source\\AIITSM\\AIITSM.Application\\06_M6_AI\\Services\\IAIAnalysisService.cs",
+              "RelativeDocumentMoniker": "AIITSM.Application\\06_M6_AI\\Services\\IAIAnalysisService.cs",
+              "ToolTip": "D:\\BCY 4th Year\\MP Online\\AI-ITSM\\Source\\AIITSM\\AIITSM.Application\\06_M6_AI\\Services\\IAIAnalysisService.cs",
+              "RelativeToolTip": "AIITSM.Application\\06_M6_AI\\Services\\IAIAnalysisService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-19T08:23:34.926Z",
+              "WhenOpened": "2026-08-20T09:17:53.705Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "AIITSM.Infrastructure.csproj",
-              "DocumentMoniker": "D:\\BCY 4th Year\\MP Online\\AI-ITSM\\Source\\AIITSM\\AIITSM.Infrastructure\\AIITSM.Infrastructure.csproj",
-              "RelativeDocumentMoniker": "AIITSM.Infrastructure\\AIITSM.Infrastructure.csproj",
-              "ToolTip": "D:\\BCY 4th Year\\MP Online\\AI-ITSM\\Source\\AIITSM\\AIITSM.Infrastructure\\AIITSM.Infrastructure.csproj",
-              "RelativeToolTip": "AIITSM.Infrastructure\\AIITSM.Infrastructure.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-08-18T13:33:17.051Z",
+              "Title": "AnalyzeIncidentRequest.cs",
+              "DocumentMoniker": "D:\\BCY 4th Year\\MP Online\\AI-ITSM\\Source\\AIITSM\\AIITSM.Application\\06_M6_AI\\Contracts\\AnalyzeIncidentRequest.cs",
+              "RelativeDocumentMoniker": "AIITSM.Application\\06_M6_AI\\Contracts\\AnalyzeIncidentRequest.cs",
+              "ToolTip": "D:\\BCY 4th Year\\MP Online\\AI-ITSM\\Source\\AIITSM\\AIITSM.Application\\06_M6_AI\\Contracts\\AnalyzeIncidentRequest.cs",
+              "RelativeToolTip": "AIITSM.Application\\06_M6_AI\\Contracts\\AnalyzeIncidentRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-20T09:01:19.593Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "AIITSM.Domain.csproj",
-              "DocumentMoniker": "D:\\BCY 4th Year\\MP Online\\AI-ITSM\\Source\\AIITSM\\AIITSM.Domain\\AIITSM.Domain.csproj",
-              "RelativeDocumentMoniker": "AIITSM.Domain\\AIITSM.Domain.csproj",
-              "ToolTip": "D:\\BCY 4th Year\\MP Online\\AI-ITSM\\Source\\AIITSM\\AIITSM.Domain\\AIITSM.Domain.csproj*",
-              "RelativeToolTip": "AIITSM.Domain\\AIITSM.Domain.csproj*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-08-18T13:30:17.805Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Class1.cs",
-              "DocumentMoniker": "D:\\BCY 4th Year\\MP Online\\AI-ITSM\\Source\\AIITSM\\AIITSM.Infrastructure\\Class1.cs",
-              "RelativeDocumentMoniker": "AIITSM.Infrastructure\\Class1.cs",
-              "ToolTip": "D:\\BCY 4th Year\\MP Online\\AI-ITSM\\Source\\AIITSM\\AIITSM.Infrastructure\\Class1.cs",
-              "RelativeToolTip": "AIITSM.Infrastructure\\Class1.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-18T13:24:02.31Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Class1.cs",
-              "DocumentMoniker": "D:\\BCY 4th Year\\MP Online\\AI-ITSM\\Source\\AIITSM\\AIITSM.Domain\\Class1.cs",
-              "RelativeDocumentMoniker": "AIITSM.Domain\\Class1.cs",
-              "ToolTip": "D:\\BCY 4th Year\\MP Online\\AI-ITSM\\Source\\AIITSM\\AIITSM.Domain\\Class1.cs",
-              "RelativeToolTip": "AIITSM.Domain\\Class1.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-18T13:23:33.755Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Class1.cs",
-              "DocumentMoniker": "D:\\BCY 4th Year\\MP Online\\AI-ITSM\\Source\\AIITSM\\AIITSM.Application\\Class1.cs",
-              "RelativeDocumentMoniker": "AIITSM.Application\\Class1.cs",
-              "ToolTip": "D:\\BCY 4th Year\\MP Online\\AI-ITSM\\Source\\AIITSM\\AIITSM.Application\\Class1.cs",
-              "RelativeToolTip": "AIITSM.Application\\Class1.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-18T13:23:05.287Z"
             }
           ]
         }
