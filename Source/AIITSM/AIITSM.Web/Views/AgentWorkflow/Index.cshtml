@@ -8,6 +8,10 @@
 
     <h1>Agent Workflow</h1>
 
+    <p class="text-muted">
+        Incident assignment, status management and agent comments.
+    </p>
+
     <hr />
 
     @if (TempData["Message"] != null)
@@ -17,10 +21,17 @@
         </div>
     }
 
-    <div class="card">
+    <div class="card mb-4">
+        <div class="card-header">
+            <h4>Incident Details</h4>
+        </div>
+
         <div class="card-body">
 
-            <h3>Incident #@Model.IncidentId</h3>
+            <p>
+                <strong>Incident ID:</strong>
+                @Model.IncidentId
+            </p>
 
             <p>
                 <strong>Title:</strong>
@@ -43,7 +54,7 @@
             </p>
 
             <p>
-                <strong>Assigned To:</strong>
+                <strong>Assigned Agent:</strong>
                 @(Model.AssignedTo?.ToString() ?? "Not Assigned")
             </p>
 
@@ -52,9 +63,18 @@
                 @(Model.Comment ?? "No comments")
             </p>
 
-            <hr />
+        </div>
+    </div>
 
+
+    <!-- UPDATE STATUS -->
+
+    <div class="card mb-4">
+        <div class="card-header">
             <h4>Update Incident Status</h4>
+        </div>
+
+        <div class="card-body">
 
             <form asp-controller="AgentWorkflow"
                   asp-action="UpdateStatus"
@@ -65,30 +85,124 @@
                        value="@Model.IncidentId" />
 
                 <div class="mb-3">
+
                     <label class="form-label">
-                        Select Status
+                        Status
                     </label>
 
                     <select name="status"
                             class="form-select">
 
-                        <option value="Open">Open</option>
-                        <option value="In Progress">
+                        <option value="Open"
+                                selected="@(Model.Status == "Open")">
+                            Open
+                        </option>
+
+                        <option value="In Progress"
+                                selected="@(Model.Status == "In Progress")">
                             In Progress
                         </option>
-                        <option value="Resolved">
+
+                        <option value="Resolved"
+                                selected="@(Model.Status == "Resolved")">
                             Resolved
                         </option>
-                        <option value="Closed">
+
+                        <option value="Closed"
+                                selected="@(Model.Status == "Closed")">
                             Closed
                         </option>
 
                     </select>
+
                 </div>
 
                 <button type="submit"
                         class="btn btn-primary">
                     Update Status
+                </button>
+
+            </form>
+
+        </div>
+    </div>
+
+
+    <!-- ASSIGN AGENT -->
+
+    <div class="card mb-4">
+        <div class="card-header">
+            <h4>Assign Agent</h4>
+        </div>
+
+        <div class="card-body">
+
+            <form asp-controller="AgentWorkflow"
+                  asp-action="AssignAgent"
+                  method="post">
+
+                <input type="hidden"
+                       name="incidentId"
+                       value="@Model.IncidentId" />
+
+                <div class="mb-3">
+
+                    <label class="form-label">
+                        Agent ID
+                    </label>
+
+                    <input type="number"
+                           name="assignedTo"
+                           class="form-control"
+                           placeholder="Enter Agent ID"
+                           value="@Model.AssignedTo" />
+
+                </div>
+
+                <button type="submit"
+                        class="btn btn-success">
+                    Assign Agent
+                </button>
+
+            </form>
+
+        </div>
+    </div>
+
+
+    <!-- ADD COMMENT -->
+
+    <div class="card mb-4">
+        <div class="card-header">
+            <h4>Add Comment</h4>
+        </div>
+
+        <div class="card-body">
+
+            <form asp-controller="AgentWorkflow"
+                  asp-action="AddComment"
+                  method="post">
+
+                <input type="hidden"
+                       name="incidentId"
+                       value="@Model.IncidentId" />
+
+                <div class="mb-3">
+
+                    <label class="form-label">
+                        Comment
+                    </label>
+
+                    <textarea name="comment"
+                              class="form-control"
+                              rows="4"
+                              placeholder="Enter incident comment"></textarea>
+
+                </div>
+
+                <button type="submit"
+                        class="btn btn-secondary">
+                    Add Comment
                 </button>
 
             </form>
