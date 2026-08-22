@@ -13,19 +13,43 @@
             <th>Email</th>
             <th>Status</th>
             <th>Roles</th>
+            <th>Actions</th>
         </tr>
     </thead>
+
     <tbody>
         @foreach (var user in Model)
         {
             <tr>
                 <td>@user.FullName</td>
                 <td>@user.Email</td>
+
                 <td>
                     @(user.IsActive ? "Active" : "Inactive")
                 </td>
+
                 <td>
                     @string.Join(", ", user.Roles)
+                </td>
+
+                <td>
+                    <form asp-controller="Administration"
+                          asp-action="SetUserStatus"
+                          method="post">
+
+                        <input type="hidden"
+                               name="userId"
+                               value="@user.UserId" />
+
+                        <input type="hidden"
+                               name="isActive"
+                               value="@(!user.IsActive)" />
+
+                        <button type="submit"
+                                class="btn btn-sm btn-secondary">
+                            @(user.IsActive ? "Deactivate" : "Activate")
+                        </button>
+                    </form>
                 </td>
             </tr>
         }

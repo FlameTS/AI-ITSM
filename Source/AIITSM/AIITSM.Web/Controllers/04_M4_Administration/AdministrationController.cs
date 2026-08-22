@@ -21,4 +21,19 @@ public class AdministrationController : Controller
 
         return View(users);
     }
+    [HttpPost]
+    public async Task<IActionResult> SetUserStatus(
+        string userId,
+        bool isActive)
+    {
+        var result = await _userAdministrationService
+            .SetUserActiveStatusAsync(userId, isActive);
+
+        if (!result)
+        {
+            return NotFound();
+        }
+
+        return RedirectToAction(nameof(Users));
+    }
 }
