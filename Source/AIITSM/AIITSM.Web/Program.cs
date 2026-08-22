@@ -30,6 +30,11 @@ namespace AIITSM.Web
                 IUserAdministrationService,
                 UserAdministrationService>();
 
+            // Add M4 Category Administration Service
+            builder.Services.AddScoped<
+                ICategoryAdministrationService,
+                CategoryAdministrationService>();
+
             var app = builder.Build();
 
             using (var scope = app.Services.CreateScope())

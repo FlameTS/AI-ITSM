@@ -8,11 +8,14 @@ namespace AIITSM.Web.Controllers._04_M4_Administration;
 public class AdministrationController : Controller
 {
     private readonly IUserAdministrationService _userAdministrationService;
+    private readonly ICategoryAdministrationService _categoryAdministrationService;
 
     public AdministrationController(
-        IUserAdministrationService userAdministrationService)
+        IUserAdministrationService userAdministrationService,
+        ICategoryAdministrationService categoryAdministrationService)
     {
         _userAdministrationService = userAdministrationService;
+        _categoryAdministrationService = categoryAdministrationService;
     }
 
     public async Task<IActionResult> Users()
@@ -21,6 +24,7 @@ public class AdministrationController : Controller
 
         return View(users);
     }
+
     [HttpPost]
     public async Task<IActionResult> SetUserStatus(
         string userId,
@@ -36,6 +40,7 @@ public class AdministrationController : Controller
 
         return RedirectToAction(nameof(Users));
     }
+
     [HttpPost]
     public async Task<IActionResult> AssignRole(
         string userId,
@@ -50,5 +55,57 @@ public class AdministrationController : Controller
         }
 
         return RedirectToAction(nameof(Users));
+    }
+
+    public async Task<IActionResult> Categories()
+    {
+        var categories = await _categoryAdministrationService
+            .GetCategoriesAsync();
+
+        return View(categories);
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> CreateCategory(string categoryName)
+    {
+        var result = await _categoryAdministrationService
+            .CreateCategoryAsync(categoryName);
+
+        if (!result)
+        {
+            return BadRequest();
+        }
+
+        return RedirectToAction(nameof(Categories));
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> UpdateCategory(
+        int categoryId,
+        string categoryName)
+    {
+        var result = await _categoryAdministrationService
+            .UpdateCategoryAsync(categoryId, categoryName);
+
+        if (!result)
+        {
+            return BadRequest();
+        }
+
+        return RedirectToAction(nameof(Categories));
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> DeleteCategory(int categoryId)
+    {
+        var result = await _categoryAdministrationService
+            .DeleteCategoryAsync(categoryId);
+
+        if (!result)
+        {
+            return BadRequest();
+        }
+
+        return RedirectToAction(nameof(Categories));
     }
 }
