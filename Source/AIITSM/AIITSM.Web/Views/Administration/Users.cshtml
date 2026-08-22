@@ -1,0 +1,33 @@
+@model IReadOnlyList<AIITSM.Application._04_M4_Administration.DTOs.UserListDto>
+
+@{
+    ViewData["Title"] = "User Management";
+}
+
+<h1>User Management</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>Status</th>
+            <th>Roles</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.FullName</td>
+                <td>@user.Email</td>
+                <td>
+                    @(user.IsActive ? "Active" : "Inactive")
+                </td>
+                <td>
+                    @string.Join(", ", user.Roles)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
