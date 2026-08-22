@@ -21,8 +21,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\AIITSM.Application\AIITSM.Application.csproj" />
-    <ProjectReference Include="..\..\AIITSM.Infrastructure\AIITSM.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\Source\AIITSM\AIITSM.Application\AIITSM.Application.csproj" />
+    <ProjectReference Include="..\..\Source\AIITSM\AIITSM.Domain\AIITSM.Domain.csproj" />
+    <ProjectReference Include="..\..\Source\AIITSM\AIITSM.Infrastructure\AIITSM.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
