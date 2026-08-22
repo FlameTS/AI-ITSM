@@ -17,6 +17,7 @@
     <Folder Include="Controllers\04_M4_Administration\" />
     <Folder Include="Controllers\05_M5_Reporting\" />
     <Folder Include="Controllers\07_M7_Automation\" />
+    <Folder Include="wwwroot\uploads\incidents\" />
   </ItemGroup>
 
   <ItemGroup>

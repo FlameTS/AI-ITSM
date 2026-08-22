@@ -1,0 +1,79 @@
+@model AIITSM.Web.Models.CreateIncidentViewModel
+
+@{
+    ViewData["Title"] = "Create Incident";
+}
+
+<div class="container mt-4">
+
+    <h1>Create Incident</h1>
+
+    <p class="text-muted">
+        Report a new IT incident. It will be created with status "Open" and
+        assigned to you as the reporter.
+    </p>
+
+    <hr />
+
+    <div class="card mb-4">
+        <div class="card-body">
+
+            <form asp-controller="Incident"
+                  asp-action="Create"
+                  method="post">
+
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="mb-3">
+                    <label asp-for="Title" class="form-label"></label>
+                    <input asp-for="Title" class="form-control" placeholder="Short summary of the issue" />
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Description" class="form-label"></label>
+                    <textarea asp-for="Description" class="form-control" rows="4" placeholder="What happened, when, and what you've already tried"></textarea>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="CategoryId" class="form-label"></label>
+                    <select asp-for="CategoryId" class="form-select">
+                        <option value="">-- Select a category --</option>
+                        @foreach (var category in Model.Categories)
+                        {
+                            <option value="@category.CategoryId">@category.CategoryName</option>
+                        }
+                    </select>
+                    <span asp-validation-for="CategoryId" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Priority" class="form-label"></label>
+                    <select asp-for="Priority" class="form-select">
+                        <option value="Low">Low</option>
+                        <option value="Medium">Medium</option>
+                        <option value="High">High</option>
+                        <option value="Critical">Critical</option>
+                    </select>
+                    <span asp-validation-for="Priority" class="text-danger"></span>
+                </div>
+
+                <button type="submit" class="btn btn-primary">
+                    Save Incident
+                </button>
+
+                <a asp-controller="Incident" asp-action="Index" class="btn btn-link">
+                    Cancel
+                </a>
+
+            </form>
+
+        </div>
+    </div>
+
+</div>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}
