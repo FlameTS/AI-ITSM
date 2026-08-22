@@ -33,9 +33,11 @@
                 </td>
 
                 <td>
+                    <!-- Activate / Deactivate -->
                     <form asp-controller="Administration"
                           asp-action="SetUserStatus"
-                          method="post">
+                          method="post"
+                          class="mb-2">
 
                         <input type="hidden"
                                name="userId"
@@ -48,6 +50,31 @@
                         <button type="submit"
                                 class="btn btn-sm btn-secondary">
                             @(user.IsActive ? "Deactivate" : "Activate")
+                        </button>
+                    </form>
+
+                    <!-- Assign Role -->
+                    <form asp-controller="Administration"
+                          asp-action="AssignRole"
+                          method="post">
+
+                        <input type="hidden"
+                               name="userId"
+                               value="@user.UserId" />
+
+                        <select name="roleName"
+                                class="form-select form-select-sm mb-2">
+
+                            <option value="Employee">Employee</option>
+                            <option value="HelpDeskAgent">HelpDeskAgent</option>
+                            <option value="ITAdministrator">ITAdministrator</option>
+                            <option value="ITManager">ITManager</option>
+
+                        </select>
+
+                        <button type="submit"
+                                class="btn btn-sm btn-primary">
+                            Assign Role
                         </button>
                     </form>
                 </td>

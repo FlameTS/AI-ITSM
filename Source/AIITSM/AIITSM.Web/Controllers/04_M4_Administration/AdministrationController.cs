@@ -36,4 +36,19 @@ public class AdministrationController : Controller
 
         return RedirectToAction(nameof(Users));
     }
+    [HttpPost]
+    public async Task<IActionResult> AssignRole(
+        string userId,
+        string roleName)
+    {
+        var result = await _userAdministrationService
+            .AssignRoleAsync(userId, roleName);
+
+        if (!result)
+        {
+            return BadRequest();
+        }
+
+        return RedirectToAction(nameof(Users));
+    }
 }
