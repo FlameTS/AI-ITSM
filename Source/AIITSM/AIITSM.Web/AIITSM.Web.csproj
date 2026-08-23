@@ -11,7 +11,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\01_M1_IdentityAccess\" />
     <Folder Include="Controllers\02_M2_IncidentManagement\" />
     <Folder Include="Controllers\03_M3_AgentWorkflow\" />
     <Folder Include="Controllers\04_M4_Administration\" />
@@ -22,6 +21,13 @@
 
   <ItemGroup>
     <PackageReference Include="DotNetEnv" Version="3.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.11">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
 
 </Project>

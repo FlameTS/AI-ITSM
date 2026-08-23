@@ -7,6 +7,7 @@ using AIITSM.Application._03_M3_AgentWorkflow;
 using AIITSM.Application._06_M6_AI.Providers;
 using AIITSM.Application._06_M6_AI.Services;
 using AIITSM.Application.Common;
+
 using AIITSM.Infrastructure._02_M2_IncidentManagement;
 using AIITSM.Infrastructure._02_M2_IncidentManagement_2.Attachments;
 using AIITSM.Infrastructure._02_M2_IncidentManagement_2.Communication;
@@ -16,17 +17,21 @@ using AIITSM.Infrastructure._03_M3_AgentWorkflow;
 using AIITSM.Infrastructure._06_M6_AI;
 using AIITSM.Infrastructure._06_M6_AI.Providers;
 using AIITSM.Infrastructure._06_M6_AI.Services;
+
 using AIITSM.Web._01_M1_IdentityAccess.Services;
 using AIITSM.Web.Common;
+
 using AITSM.Application._01_M1_IdentityAccess.Interfaces;
 using AITSM.Infrastructure._01_M1_IdentityAccess.Identity;
+
 using DotNetEnv;
-using Google;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+
 // Avoid collision between the two ICurrentUserService interfaces.
 using IdentityCurrentUserService =
     AITSM.Application._01_M1_IdentityAccess.Interfaces.ICurrentUserService;
+
 using IncidentCurrentUserService =
     AIITSM.Application.Common.ICurrentUserService;
 
