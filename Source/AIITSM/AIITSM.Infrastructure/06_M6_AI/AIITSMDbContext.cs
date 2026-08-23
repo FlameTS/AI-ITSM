@@ -1,3 +1,4 @@
+using AIITSM.Domain._03_M3_AgentWorkflow;
 using AIITSM.Domain._02_M2_IncidentManagement;
 using AIITSM.Domain._06_M6_AI;
 using AIITSM.Domain._02_M2_IncidentManagement_2;
@@ -25,6 +26,9 @@ namespace AIITSM.Infrastructure._06_M6_AI
         public DbSet<Notification> Notifications { get; set; }
         public DbSet<IncidentAttachment> IncidentAttachments { get; set; }
         public DbSet<IncidentFeedback> IncidentFeedback { get; set; }
+
+        //M3
+        public DbSet<IncidentAssignment> IncidentAssignments { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

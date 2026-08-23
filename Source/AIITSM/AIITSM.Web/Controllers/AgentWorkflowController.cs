@@ -1,3 +1,8 @@
+using AIITSM.Application._02_M2_IncidentManagement;
+using AIITSM.Application._02_M2_IncidentManagement_2.Communication;
+using AIITSM.Application._03_M3_AgentWorkflow;
+using AIITSM.Application.Common;
+using AIITSM.Domain._02_M2_IncidentManagement;
 using AIITSM.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -5,74 +10,156 @@ namespace AIITSM.Web.Controllers
 {
     public class AgentWorkflowController : Controller
     {
-        private static AgentWorkflowModel incident = new AgentWorkflowModel
-        {
-            IncidentId = 1001,
-            Title = "Network connectivity issue",
-            Description = "User is unable to access the internal network.",
-            Priority = "High",
-            Status = "Open",
-            AssignedTo = null,
-            Comment = "Incident received and waiting for agent assignment."
-        };
+        private readonly IIncidentService _incidentService;
+        private readonly IIncidentCommentService _commentService;
+        private readonly IIncidentAssignmentService _assignmentService;
+        private readonly ICurrentUserService _currentUser;
 
-        public IActionResult Index()
+        public AgentWorkflowController(
+            IIncidentService incidentService,
+            IIncidentCommentService commentService,
+            IIncidentAssignmentService assignmentService,
+            ICurrentUserService currentUser)
         {
-            return View(incident);
+            _incidentService = incidentService;
+            _commentService = commentService;
+            _assignmentService = assignmentService;
+            _currentUser = currentUser;
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public IActionResult UpdateStatus(int incidentId, string status)
+        public async Task<IActionResult> Index(int id = 1)
         {
-            if (incident.IncidentId == incidentId)
-            {
-                incident.Status = status;
+            var incident = await _incidentService.GetIncidentDetailsAsync(id);
 
-                TempData["Message"] =
-                    $"Incident #{incidentId} status updated to {status}.";
+            if (incident is null)
+            {
+                return NotFound();
             }
 
-            return RedirectToAction(nameof(Index));
+            var comments = await _commentService.GetCommentsAsync(id);
+            var assignedTo = await _assignmentService.GetAssignedAgentAsync(id);
+
+            var model = new AgentWorkflowModel
+            {
+                IncidentId = incident.IncidentId,
+                Title = incident.Title,
+                Description = incident.Description,
+                Priority = incident.Priority.ToString(),
+                Status = ToDisplayStatus(incident.Status),
+                AssignedTo = assignedTo,
+                Comment = comments.LastOrDefault()?.CommentText
+            };
+
+            return View(model);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult AssignAgent(int incidentId, int? assignedTo)
+        public async Task<IActionResult> UpdateStatus(
+            int incidentId,
+            string status,
+            CancellationToken cancellationToken = default)
         {
-            if (incident.IncidentId == incidentId)
+            if (!TryParseStatus(status, out var parsedStatus))
             {
-                incident.AssignedTo = assignedTo;
+                TempData["Message"] = "Invalid incident status.";
+                return RedirectToAction(nameof(Index), new { id = incidentId });
+            }
+
+            try
+            {
+                await _incidentService.UpdateStatusAsync(
+                    incidentId,
+                    parsedStatus,
+                    cancellationToken);
+
+                TempData["Message"] =
+                    $"Incident #{incidentId} status updated to {ToDisplayStatus(parsedStatus)}.";
+            }
+            catch (InvalidOperationException ex)
+            {
+                TempData["Message"] = ex.Message;
+            }
+
+            return RedirectToAction(nameof(Index), new { id = incidentId });
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AssignAgent(
+            int incidentId,
+            int? assignedTo,
+            CancellationToken cancellationToken = default)
+        {
+            try
+            {
+                await _assignmentService.AssignAgentAsync(
+                    incidentId,
+                    assignedTo,
+                    cancellationToken);
 
                 TempData["Message"] = assignedTo.HasValue
                     ? $"Incident #{incidentId} assigned to Agent #{assignedTo}."
                     : $"Agent assignment removed from Incident #{incidentId}.";
             }
+            catch (InvalidOperationException ex)
+            {
+                TempData["Message"] = ex.Message;
+            }
 
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(Index), new { id = incidentId });
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult AddComment(int incidentId, string comment)
+        public async Task<IActionResult> AddComment(
+            int incidentId,
+            string comment,
+            CancellationToken cancellationToken = default)
         {
-            if (incident.IncidentId == incidentId)
+            if (string.IsNullOrWhiteSpace(comment))
             {
-                if (!string.IsNullOrWhiteSpace(comment))
-                {
-                    incident.Comment = comment.Trim();
-
-                    TempData["Message"] =
-                        $"Comment added to Incident #{incidentId}.";
-                }
-                else
-                {
-                    TempData["Message"] =
-                        "Comment cannot be empty.";
-                }
+                TempData["Message"] = "Comment cannot be empty.";
+                return RedirectToAction(nameof(Index), new { id = incidentId });
             }
 
-            return RedirectToAction(nameof(Index));
+            try
+            {
+                await _commentService.AddCommentAsync(
+                    incidentId,
+                    _currentUser.UserId,
+                    comment,
+                    cancellationToken);
+
+                TempData["Message"] =
+                    $"Comment added to Incident #{incidentId}.";
+            }
+            catch (InvalidOperationException ex)
+            {
+                TempData["Message"] = ex.Message;
+            }
+
+            return RedirectToAction(nameof(Index), new { id = incidentId });
         }
+
+        private static bool TryParseStatus(string value, out IncidentStatus status)
+        {
+            status = value?.Trim() switch
+            {
+                "Open" => IncidentStatus.Open,
+                "In Progress" => IncidentStatus.InProgress,
+                "Resolved" => IncidentStatus.Resolved,
+                "Closed" => IncidentStatus.Closed,
+                _ => default
+            };
+
+            return value?.Trim() is "Open" or "In Progress" or "Resolved" or "Closed";
+        }
+
+        private static string ToDisplayStatus(IncidentStatus status) => status switch
+        {
+            IncidentStatus.InProgress => "In Progress",
+            _ => status.ToString()
+        };
     }
 }

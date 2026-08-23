@@ -17,6 +17,8 @@ using AIITSM.Infrastructure._06_M6_AI.Services;
 using AIITSM.Web.Common;
 using DotNetEnv;
 using Microsoft.EntityFrameworkCore;
+using AIITSM.Application._03_M3_AgentWorkflow;
+using AIITSM.Infrastructure._03_M3_AgentWorkflow;
 
 
 namespace AIITSM.Web
@@ -61,6 +63,9 @@ namespace AIITSM.Web
                 IncidentAttachmentService>();
 
             builder.Services.AddScoped<IIncidentFeedbackService, IncidentFeedbackService>();
+
+            // M3 — Agent Workflow integration.
+            builder.Services.AddScoped<IIncidentAssignmentService, IncidentAssignmentService>();
 
             // TEMP until M1 (Identity/Access) ships real login — see
             // Web/Common/DemoCurrentUserService.cs for details.

@@ -90,6 +90,36 @@ namespace AIITSM.Infrastructure._02_M2_IncidentManagement
                 .ToListAsync(cancellationToken);
         }
 
+        public async Task UpdateStatusAsync(
+            int incidentId,
+            IncidentStatus status,
+            CancellationToken cancellationToken = default)
+        {
+            var incident = await _dbContext.Incidents
+                .FirstOrDefaultAsync(x => x.IncidentId == incidentId, cancellationToken);
+
+            if (incident is null)
+            {
+                throw new InvalidOperationException(
+                    "The specified incident does not exist.");
+            }
+
+            incident.Status = status;
+
+            if (status == IncidentStatus.Resolved && incident.ResolvedAt is null)
+            {
+                // First time reaching Resolved — record when it happened.
+                incident.ResolvedAt = DateTime.UtcNow;
+            }
+            else if (status is IncidentStatus.Open or IncidentStatus.InProgress)
+            {
+                // Reopened — clear the old resolution timestamp.
+                incident.ResolvedAt = null;
+            }
+            // Closed: leave ResolvedAt as-is, whatever it already was.
+
+            await _dbContext.SaveChangesAsync(cancellationToken);
+        }
         private static string FormatIncidentNumber(int incidentId) => $"INC-{incidentId:D6}";
 
         private static IncidentSummaryDto MapToSummary(Incident incident) => new()
