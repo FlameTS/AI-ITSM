@@ -3,4 +3,5 @@
   <Project Path="AIITSM.Domain/AIITSM.Domain.csproj" />
   <Project Path="AIITSM.Infrastructure/AIITSM.Infrastructure.csproj" />
   <Project Path="AIITSM.Web/AIITSM.Web.csproj" />
+  <Project Path="AITSM.Tests/AITSM.Tests.csproj" Id="438d7e6e-c70e-4321-abae-e5d3b3a3f0bb" />
 </Solution>

@@ -164,6 +164,36 @@ namespace AIITSM.Web.Controllers._01_M1_IdentityAccess
                 return NotFound();
             }
 
+            // Check whether another user already has this email
+            var userWithSameEmail = await _userManager.FindByEmailAsync(model.Email);
+
+            if (userWithSameEmail != null && userWithSameEmail.Id != user.Id)
+            {
+                ModelState.AddModelError(
+                    "Email",
+                    "A user with this email already exists.");
+
+                ViewBag.Roles = _roleManager.Roles
+                    .Select(r => r.Name)
+                    .ToList();
+
+                return View(model);
+            }
+
+            // Make sure selected role is valid
+            if (!await _roleManager.RoleExistsAsync(model.Role))
+            {
+                ModelState.AddModelError(
+                    "Role",
+                    "Invalid role selected.");
+
+                ViewBag.Roles = _roleManager.Roles
+                    .Select(r => r.Name)
+                    .ToList();
+
+                return View(model);
+            }
+
             user.FullName = model.FullName;
             user.Email = model.Email;
             user.UserName = model.Email;
@@ -175,7 +205,9 @@ namespace AIITSM.Web.Controllers._01_M1_IdentityAccess
             {
                 foreach (var error in updateResult.Errors)
                 {
-                    ModelState.AddModelError(string.Empty, error.Description);
+                    ModelState.AddModelError(
+                        string.Empty,
+                        error.Description);
                 }
 
                 ViewBag.Roles = _roleManager.Roles
@@ -189,12 +221,77 @@ namespace AIITSM.Web.Controllers._01_M1_IdentityAccess
 
             if (!currentRoles.Contains(model.Role))
             {
-                await _userManager.RemoveFromRolesAsync(user, currentRoles);
+                if (currentRoles.Any())
+                {
+                    await _userManager.RemoveFromRolesAsync(
+                        user,
+                        currentRoles);
+                }
 
                 await _userManager.AddToRoleAsync(
                     user,
                     model.Role);
             }
+
+            return RedirectToAction(nameof(Index));
+        }
+        [HttpGet]
+        public async Task<IActionResult> ResetPassword(string id)
+        {
+            var user = await _userManager.FindByIdAsync(id);
+
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            var model = new ResetPasswordViewModel
+            {
+                UserId = user.Id,
+                Email = user.Email ?? string.Empty
+            };
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ResetPassword(
+            ResetPasswordViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            var user = await _userManager.FindByIdAsync(model.UserId);
+
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            var token = await _userManager.GeneratePasswordResetTokenAsync(user);
+
+            var result = await _userManager.ResetPasswordAsync(
+                user,
+                token,
+                model.NewPassword);
+
+            if (!result.Succeeded)
+            {
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError(
+                        string.Empty,
+                        error.Description);
+                }
+
+                return View(model);
+            }
+
+            TempData["SuccessMessage"] =
+                "Password reset successfully.";
 
             return RedirectToAction(nameof(Index));
         }

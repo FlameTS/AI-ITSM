@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Configuration;
 
 namespace AITSM.Infrastructure._01_M1_IdentityAccess.Identity
 {
@@ -6,7 +7,8 @@ namespace AITSM.Infrastructure._01_M1_IdentityAccess.Identity
     {
         public static async Task SeedRolesAndAdminAsync(
             RoleManager<ApplicationRole> roleManager,
-            UserManager<ApplicationUser> userManager)
+            UserManager<ApplicationUser> userManager,
+            IConfiguration configuration)
         {
             string[] roles =
             {
@@ -28,10 +30,23 @@ namespace AITSM.Infrastructure._01_M1_IdentityAccess.Identity
                 }
             }
 
-            string adminEmail = "admin@aitsm.com";
-            string adminPassword = "Admin@123";
+            var adminEmail =
+                configuration["BootstrapAdmin:Email"];
 
-            var adminUser = await userManager.FindByEmailAsync(adminEmail);
+            var adminPassword =
+                configuration["BootstrapAdmin:Password"];
+
+            var adminFullName =
+                configuration["BootstrapAdmin:FullName"];
+
+            if (string.IsNullOrWhiteSpace(adminEmail) ||
+                string.IsNullOrWhiteSpace(adminPassword))
+            {
+                return;
+            }
+
+            var adminUser =
+                await userManager.FindByEmailAsync(adminEmail);
 
             if (adminUser == null)
             {
@@ -39,7 +54,7 @@ namespace AITSM.Infrastructure._01_M1_IdentityAccess.Identity
                 {
                     UserName = adminEmail,
                     Email = adminEmail,
-                    FullName = "System Administrator",
+                    FullName = adminFullName ?? "System Administrator",
                     IsActive = true,
                     EmailConfirmed = true
                 };

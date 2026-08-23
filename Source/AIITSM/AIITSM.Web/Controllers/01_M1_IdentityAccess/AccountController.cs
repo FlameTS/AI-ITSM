@@ -67,9 +67,28 @@ namespace AIITSM.Web.Controllers._01_M1_IdentityAccess
                 model.Password,
                 model.RememberMe,
                 lockoutOnFailure: false);
-
             if (result.Succeeded)
             {
+                if (await _userManager.IsInRoleAsync(user, "ITAdministrator"))
+                {
+                    return RedirectToAction("Index", "AdminDashboard");
+                }
+
+                if (await _userManager.IsInRoleAsync(user, "HelpDeskAgent"))
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+
+                if (await _userManager.IsInRoleAsync(user, "ITManager"))
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+
+                if (await _userManager.IsInRoleAsync(user, "Employee"))
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+
                 return RedirectToAction("Index", "Home");
             }
 

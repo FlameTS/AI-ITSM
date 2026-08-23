@@ -1,0 +1,228 @@
+﻿@{
+    ViewData["Title"] = "Administrator Dashboard";
+}
+
+<div class="admin-dashboard">
+
+    <div class="dashboard-header mb-4">
+        <div>
+            <h2 class="fw-bold mb-1">Administrator Dashboard</h2>
+            <p class="text-muted mb-0">
+                Manage users, roles, and access across the AI-ITSM platform.
+            </p>
+        </div>
+
+        <div>
+            <a asp-controller="UserManagement"
+               asp-action="Create"
+               class="btn btn-primary">
+                + Create User
+            </a>
+        </div>
+    </div>
+
+    <div class="row g-4">
+
+        <div class="col-xl-3 col-md-6">
+            <div class="dashboard-card">
+                <div class="dashboard-card-title">Total Users</div>
+                <div class="dashboard-card-value">@ViewBag.TotalUsers</div>
+                <div class="dashboard-card-subtitle">
+                    Registered accounts
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-md-6">
+            <div class="dashboard-card">
+                <div class="dashboard-card-title">Active Users</div>
+                <div class="dashboard-card-value">@ViewBag.ActiveUsers</div>
+                <div class="dashboard-card-subtitle">
+                    Currently enabled
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-md-6">
+            <div class="dashboard-card">
+                <div class="dashboard-card-title">Inactive Users</div>
+                <div class="dashboard-card-value">@ViewBag.InactiveUsers</div>
+                <div class="dashboard-card-subtitle">
+                    Deactivated accounts
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-md-6">
+            <div class="dashboard-card">
+                <div class="dashboard-card-title">Help Desk Agents</div>
+                <div class="dashboard-card-value">@ViewBag.AgentCount</div>
+                <div class="dashboard-card-subtitle">
+                    Support personnel
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row g-4 mt-1">
+
+        <div class="col-lg-7">
+
+            <div class="dashboard-section">
+
+                <div class="section-header">
+                    <div>
+                        <h5 class="fw-bold mb-1">User Distribution</h5>
+                        <p class="text-muted small mb-0">
+                            Accounts grouped by system role
+                        </p>
+                    </div>
+                </div>
+
+                <div class="role-stat">
+                    <div>
+                        <strong>Employees</strong>
+                        <div class="text-muted small">
+                            Submit and track incidents
+                        </div>
+                    </div>
+
+                    <span class="role-count">
+                        @ViewBag.EmployeeCount
+                    </span>
+                </div>
+
+                <div class="role-stat">
+                    <div>
+                        <strong>Help Desk Agents</strong>
+                        <div class="text-muted small">
+                            Manage and resolve assigned incidents
+                        </div>
+                    </div>
+
+                    <span class="role-count">
+                        @ViewBag.AgentCount
+                    </span>
+                </div>
+
+                <div class="role-stat">
+                    <div>
+                        <strong>IT Managers</strong>
+                        <div class="text-muted small">
+                            Monitor reports and performance
+                        </div>
+                    </div>
+
+                    <span class="role-count">
+                        @ViewBag.ManagerCount
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-5">
+
+            <div class="dashboard-section">
+
+                <div class="section-header">
+                    <div>
+                        <h5 class="fw-bold mb-1">Quick Actions</h5>
+                        <p class="text-muted small mb-0">
+                            Common administration tasks
+                        </p>
+                    </div>
+                </div>
+
+                <div class="d-grid gap-3">
+
+                    <a asp-controller="UserManagement"
+                       asp-action="Index"
+                       class="quick-action">
+                        <div>
+                            <strong>Manage Users</strong>
+                            <div class="small text-muted">
+                                View, edit, deactivate, or reset accounts
+                            </div>
+                        </div>
+
+                        <span>→</span>
+                    </a>
+
+                    <a asp-controller="UserManagement"
+                       asp-action="Create"
+                       class="quick-action">
+                        <div>
+                            <strong>Create User</strong>
+                            <div class="small text-muted">
+                                Add a new account and assign a role
+                            </div>
+                        </div>
+
+                        <span>→</span>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="dashboard-section mt-4">
+
+        <div class="section-header">
+            <div>
+                <h5 class="fw-bold mb-1">System Modules</h5>
+                <p class="text-muted small mb-0">
+                    Modules that will connect as the project is integrated
+                </p>
+            </div>
+        </div>
+
+        <div class="row g-3">
+
+            <div class="col-lg-3 col-md-6">
+                <div class="module-card">
+                    <strong>Incident Management</strong>
+                    <p class="small text-muted mb-0">
+                        Incident creation, tracking and status management
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="module-card">
+                    <strong>AI Assistance</strong>
+                    <p class="small text-muted mb-0">
+                        Category, priority and resolution suggestions
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="module-card">
+                    <strong>Reports</strong>
+                    <p class="small text-muted mb-0">
+                        Statistics and support performance monitoring
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="module-card">
+                    <strong>Automation</strong>
+                    <p class="small text-muted mb-0">
+                        Notifications and escalation workflows
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

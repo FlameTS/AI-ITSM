@@ -3,70 +3,195 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - AIITSM.Web</title>
+
+    <title>@ViewData["Title"] - AI ITSM</title>
+
     <script type="importmap"></script>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/AIITSM.Web.styles.css" asp-append-version="true" />
+
+    <link rel="stylesheet"
+          href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+    <link rel="stylesheet"
+          href="~/css/site.css"
+          asp-append-version="true" />
+
+    <link rel="stylesheet"
+          href="~/AIITSM.Web.styles.css"
+          asp-append-version="true" />
 </head>
-<body>
+
+<body class="bg-light">
+
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            @if (User.Identity != null && User.Identity.IsAuthenticated)
-            {
-                <form asp-controller="Account"
-                      asp-action="Logout"
-                      method="post"
-                      class="d-inline">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
 
-                    @Html.AntiForgeryToken()
-
-                    <button type="submit" class="btn btn-link nav-link">
-                        Logout
-                    </button>
-                </form>
-            }
-            else
-            {
-                <a class="nav-link"
-                   asp-controller="Account"
-                   asp-action="Login">
-                    Login
-                </a>
-            }
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">AIITSM.Web</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
+
+                <a class="navbar-brand fw-bold"
+                   asp-controller="Home"
+                   asp-action="Index">
+                    AI-ITSM
+                </a>
+
+                <button class="navbar-toggler"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#mainNavbar">
+
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
+
+                <div class="collapse navbar-collapse"
+                     id="mainNavbar">
+
+                    @if (User.Identity != null &&
+                         User.Identity.IsAuthenticated)
+                    {
+                        <ul class="navbar-nav me-auto">
+
+                            @if (User.IsInRole("ITAdministrator"))
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link"
+                                       asp-controller="AdminDashboard"
+                                       asp-action="Index">
+                                        Dashboard
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link"
+                                       asp-controller="UserManagement"
+                                       asp-action="Index">
+                                        Users
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link"
+                                       asp-controller="UserManagement"
+                                       asp-action="Create">
+                                        Create User
+                                    </a>
+                                </li>
+                            }
+
+                            @if (User.IsInRole("Employee"))
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link"
+                                       asp-controller="Home"
+                                       asp-action="Index">
+                                        My Dashboard
+                                    </a>
+                                </li>
+                            }
+
+                            @if (User.IsInRole("HelpDeskAgent"))
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link"
+                                       asp-controller="Home"
+                                       asp-action="Index">
+                                        Agent Dashboard
+                                    </a>
+                                </li>
+                            }
+
+                            @if (User.IsInRole("ITManager"))
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link"
+                                       asp-controller="Home"
+                                       asp-action="Index">
+                                        Manager Dashboard
+                                    </a>
+                                </li>
+                            }
+
+                        </ul>
+
+                        <ul class="navbar-nav ms-auto align-items-lg-center">
+
+                            <li class="nav-item me-lg-3">
+                                <span class="navbar-text text-light">
+
+                                    @if (!string.IsNullOrWhiteSpace(User.Identity.Name))
+                                    {
+                                        <span>
+                                            Signed in as
+                                            <strong>@User.Identity.Name</strong>
+                                        </span>
+                                    }
+
+                                </span>
+                            </li>
+
+                            <li class="nav-item">
+
+                                <form asp-controller="Account"
+                                      asp-action="Logout"
+                                      method="post">
+
+                                    @Html.AntiForgeryToken()
+
+                                    <button type="submit"
+                                            class="btn btn-outline-light btn-sm">
+                                        Logout
+                                    </button>
+
+                                </form>
+
+                            </li>
+
+                        </ul>
+                    }
+                    else
+                    {
+                        <ul class="navbar-nav ms-auto">
+
+                            <li class="nav-item">
+                                <a class="btn btn-outline-light"
+                                   asp-controller="Account"
+                                   asp-action="Login">
+                                    Login
+                                </a>
+                            </li>
+
+                        </ul>
+                    }
+
                 </div>
+
             </div>
+
         </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2026 - AIITSM.Web - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    <main class="container-fluid py-4">
+        @RenderBody()
+    </main>
+
+    <footer class="border-top bg-white text-muted py-3 mt-4">
+
+        <div class="container-fluid text-center">
+
+            &copy; 2026 AI-ITSM
+            &nbsp; | &nbsp;
+            AI-Powered IT Service Desk
+
         </div>
+
     </footer>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
+
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <script src="~/js/site.js"
+            asp-append-version="true"></script>
+
     @await RenderSectionAsync("Scripts", required: false)
+
 </body>
 </html>
