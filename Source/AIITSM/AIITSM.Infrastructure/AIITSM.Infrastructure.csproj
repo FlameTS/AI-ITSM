@@ -13,7 +13,6 @@
 
   <ItemGroup>
     <Folder Include="02_M2_IncidentManagement\" />
-    <Folder Include="03_M3_AgentWorkflow\" />
     <Folder Include="04_M4_Administration\" />
     <Folder Include="05_M5_Reporting\" />
     <Folder Include="06_M6_AI\" />

@@ -7,7 +7,8 @@ using AIITSM.Application._02_M2_IncidentManagement_2.Attachments;
 using AIITSM.Application._02_M2_IncidentManagement_2.Communication;
 using AIITSM.Application._02_M2_IncidentManagement_2.Feedback;
 using AIITSM.Application._02_M2_IncidentManagement_2.Notifications;
-
+using AIITSM.Application._03_M3_AgentWorkflow;
+using AIITSM.Infrastructure._03_M3_AgentWorkflow;
 
 
 using AIITSM.Application._06_M6_AI.Providers;
@@ -33,6 +34,7 @@ using DotNetEnv;
 
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+
 
 // Avoid collision between the two ICurrentUserService interfaces.
 using IdentityCurrentUserService =
@@ -143,14 +145,12 @@ namespace AIITSM.Web
             // -------------------------------------------------
             // M3 - Agent Workflow
             // -------------------------------------------------
-           
+            builder.Services.AddScoped<
+                IIncidentAssignmentService,
+                IncidentAssignmentService>();
 
             // -------------------------------------------------
             // Temporary M2 current-user implementation
-            //
-            // M2 currently expects int UserId while ASP.NET
-            // Identity uses string IDs. Keep this temporarily
-            // until Database v2 reconciles the user ID types.
             // -------------------------------------------------
             builder.Services.AddScoped<
                 IncidentCurrentUserService,
