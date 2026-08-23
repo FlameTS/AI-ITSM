@@ -28,6 +28,9 @@ using DotNetEnv;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
+using AIITSM.Application._04_M4_Administration.Interfaces;
+using AIITSM.Infrastructure._04_M4_Administration.Services;
+
 // Avoid collision between the two ICurrentUserService interfaces.
 using IdentityCurrentUserService =
     AITSM.Application._01_M1_IdentityAccess.Interfaces.ICurrentUserService;
@@ -158,8 +161,19 @@ namespace AIITSM.Web
             builder.Services.AddScoped<
                 IIncidentAssignmentService,
                 IncidentAssignmentService>();
+            
+            // M4 Administration
+            builder.Services.AddScoped<
+                IUserAdministrationService,
+                UserAdministrationService>();
+
+            builder.Services.AddScoped<
+                ICategoryAdministrationService,
+                CategoryAdministrationService>();
 
             var app = builder.Build();
+
+            
 
             // -------------------------------------------------
             // Seed Identity roles and administrator
