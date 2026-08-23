@@ -1,3 +1,8 @@
+using AIITSM.Application._07_M7_Automation;
+using AIITSM.Infrastructure.Data;
+using AIITSM.Infrastructure._07_M7_Automation;
+
+
 namespace AIITSM.Web
 {
     public class Program
@@ -8,6 +13,8 @@ namespace AIITSM.Web
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddDbContext<ITServiceDeskContext>();
+            builder.Services.AddScoped<IAutomationService, AutomationService>();
 
             var app = builder.Build();
 

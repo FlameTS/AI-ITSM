@@ -1,0 +1,166 @@
+﻿@{
+    ViewData["Title"] = "Automation";
+}
+
+<div class="container mt-4">
+    <h1>IT Service Desk Automation</h1>
+
+    <p class="text-muted">
+        Trigger automation actions for incidents.
+    </p>
+
+    <hr />
+
+    <!-- Assignment Notification -->
+    <div class="card mb-4">
+        <div class="card-body">
+            <h4>Assignment Notification</h4>
+            <p>Send a notification when an incident is assigned to a user.</p>
+
+            <form method="post"
+                  action="/Automation/SendAssignmentNotification">
+
+                <div class="mb-3">
+                    <label class="form-label">Incident ID</label>
+                    <input type="number"
+                           name="incidentId"
+                           class="form-control"
+                           required />
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Assigned User ID</label>
+                    <input type="number"
+                           name="assignedTo"
+                           class="form-control"
+                           required />
+                </div>
+
+                <button type="submit" class="btn btn-primary">
+                    Send Assignment Notification
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Status Change Notification -->
+    <div class="card mb-4">
+        <div class="card-body">
+            <h4>Status Change Notification</h4>
+            <p>Notify a user when an incident status changes.</p>
+
+            <form method="post"
+                  action="/Automation/SendStatusChangeNotification">
+
+                <div class="mb-3">
+                    <label class="form-label">Incident ID</label>
+                    <input type="number"
+                           name="incidentId"
+                           class="form-control"
+                           required />
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">User ID</label>
+                    <input type="number"
+                           name="userId"
+                           class="form-control"
+                           required />
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">New Status</label>
+                    <input type="text"
+                           name="newStatus"
+                           class="form-control"
+                           placeholder="e.g. Resolved"
+                           required />
+                </div>
+
+                <button type="submit" class="btn btn-primary">
+                    Send Status Notification
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Critical Incident Notification -->
+    <div class="card mb-4">
+        <div class="card-body">
+            <h4>Critical Incident Notification</h4>
+            <p>Send a notification for a critical incident.</p>
+
+            <form method="post"
+                  action="/Automation/SendCriticalIncidentNotification">
+
+                <div class="mb-3">
+                    <label class="form-label">Incident ID</label>
+                    <input type="number"
+                           name="incidentId"
+                           class="form-control"
+                           required />
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">User ID</label>
+                    <input type="number"
+                           name="userId"
+                           class="form-control"
+                           required />
+                </div>
+
+                <button type="submit" class="btn btn-danger">
+                    Send Critical Notification
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Incident Escalation -->
+    <div class="card mb-4">
+        <div class="card-body">
+            <h4>Incident Escalation</h4>
+            <p>Escalate an incident from one user to another.</p>
+
+            <form method="post"
+                  action="/Automation/EscalateIncident">
+
+                <div class="mb-3">
+                    <label class="form-label">Incident ID</label>
+                    <input type="number"
+                           name="incidentId"
+                           class="form-control"
+                           required />
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Escalated By (User ID)</label>
+                    <input type="number"
+                           name="escalatedBy"
+                           class="form-control"
+                           required />
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Escalated To (User ID)</label>
+                    <input type="number"
+                           name="escalatedTo"
+                           class="form-control"
+                           required />
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Reason</label>
+                    <textarea name="reason"
+                              class="form-control"
+                              rows="3"
+                              required></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-warning">
+                    Escalate Incident
+                </button>
+            </form>
+        </div>
+    </div>
+</div>

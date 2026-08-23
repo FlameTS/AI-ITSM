@@ -1,50 +1,90 @@
 ﻿using AIITSM.Application._07_M7_Automation;
+using AIITSM.Infrastructure.Data;
 
 namespace AIITSM.Infrastructure._07_M7_Automation
 {
     public class AutomationService : IAutomationService
     {
-        public Task SendAssignmentNotificationAsync(
+        private readonly ITServiceDeskContext _context;
+
+        public AutomationService(ITServiceDeskContext context)
+        {
+            _context = context;
+        }
+
+        public async Task SendAssignmentNotificationAsync(
             int incidentId,
             int assignedTo)
         {
-            Console.WriteLine(
-                $"Notification: Incident {incidentId} assigned to user {assignedTo}.");
+            var notification = new Notification
+            {
+                UserId = assignedTo,
+                IncidentId = incidentId,
+                Message = $"Incident {incidentId} has been assigned to you.",
+                IsRead = false,
+                CreatedAt = DateTime.Now
+            };
 
-            return Task.CompletedTask;
+            _context.Notifications.Add(notification);
+
+            await _context.SaveChangesAsync();
         }
 
-        public Task SendStatusChangeNotificationAsync(
+        public async Task SendStatusChangeNotificationAsync(
             int incidentId,
             int userId,
             string newStatus)
         {
-            Console.WriteLine(
-                $"Notification: Incident {incidentId} status changed to {newStatus}.");
+            var notification = new Notification
+            {
+                UserId = userId,
+                IncidentId = incidentId,
+                Message = $"Incident {incidentId} status changed to {newStatus}.",
+                IsRead = false,
+                CreatedAt = DateTime.Now
+            };
 
-            return Task.CompletedTask;
+            _context.Notifications.Add(notification);
+
+            await _context.SaveChangesAsync();
         }
 
-        public Task SendCriticalIncidentNotificationAsync(
+        public async Task SendCriticalIncidentNotificationAsync(
             int incidentId,
             int userId)
         {
-            Console.WriteLine(
-                $"Critical incident notification for Incident {incidentId}.");
+            var notification = new Notification
+            {
+                UserId = userId,
+                IncidentId = incidentId,
+                Message = $"Critical incident alert: Incident {incidentId} requires immediate attention.",
+                IsRead = false,
+                CreatedAt = DateTime.Now
+            };
 
-            return Task.CompletedTask;
+            _context.Notifications.Add(notification);
+
+            await _context.SaveChangesAsync();
         }
 
-        public Task EscalateIncidentAsync(
+        public async Task EscalateIncidentAsync(
             int incidentId,
             int escalatedBy,
             int escalatedTo,
             string reason)
         {
-            Console.WriteLine(
-                $"Incident {incidentId} escalated from {escalatedBy} to {escalatedTo}. Reason: {reason}");
+            var escalation = new Escalation
+            {
+                IncidentId = incidentId,
+                EscalatedBy = escalatedBy,
+                EscalatedTo = escalatedTo,
+                Reason = reason,
+                EscalatedAt = DateTime.Now
+            };
 
-            return Task.CompletedTask;
+            _context.Escalations.Add(escalation);
+
+            await _context.SaveChangesAsync();
         }
     }
 }
