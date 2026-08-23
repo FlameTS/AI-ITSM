@@ -7,22 +7,33 @@ namespace AIITSM.Web.Controllers._05_M5_Reporting;
 [ApiController]
 public class ReportingController : ControllerBase
 {
-    [HttpGet("statistics")]
-    public ActionResult<IncidentStatisticsDto> GetIncidentStatistics()
+    private readonly IReportingService _reportingService;
+
+    public ReportingController(IReportingService reportingService)
     {
-        return Ok(new IncidentStatisticsDto
-        {
-            TotalIncidents = 0,
-            OpenIncidents = 0,
-            ResolvedIncidents = 0,
-            EscalatedIncidents = 0
-        });
+        _reportingService = reportingService;
+    }
+
+    [HttpGet("statistics")]
+    public async Task<ActionResult<IncidentStatisticsDto>> GetIncidentStatistics(
+        CancellationToken cancellationToken)
+    {
+        var statistics =
+            await _reportingService.GetIncidentStatisticsAsync(
+                cancellationToken);
+
+        return Ok(statistics);
     }
 
     [HttpGet("unresolved")]
-    public ActionResult<IEnumerable<UnresolvedIncidentDto>> GetUnresolvedIncidents()
+    public async Task<ActionResult<IReadOnlyList<UnresolvedIncidentDto>>> GetUnresolvedIncidents(
+    CancellationToken cancellationToken)
     {
-        return Ok(Array.Empty<UnresolvedIncidentDto>());
+        var incidents =
+            await _reportingService.GetUnresolvedIncidentsAsync(
+                cancellationToken);
+
+        return Ok(incidents);
     }
 
     [HttpGet("escalated")]
@@ -32,8 +43,24 @@ public class ReportingController : ControllerBase
     }
 
     [HttpGet("team-performance")]
-    public ActionResult<IEnumerable<SupportTeamPerformanceDto>> GetTeamPerformance()
+    public async Task<ActionResult<IReadOnlyList<SupportTeamPerformanceDto>>> GetTeamPerformance(
+    CancellationToken cancellationToken)
     {
-        return Ok(Array.Empty<SupportTeamPerformanceDto>());
+        var performance =
+            await _reportingService.GetTeamPerformanceAsync(
+                cancellationToken);
+
+        return Ok(performance);
+    }
+
+    [HttpGet("recurring-patterns")]
+    public async Task<ActionResult<IReadOnlyList<RecurringIncidentPatternDto>>> GetRecurringIncidentPatterns(
+    CancellationToken cancellationToken)
+    {
+        var patterns =
+            await _reportingService.GetRecurringIncidentPatternsAsync(
+                cancellationToken);
+
+        return Ok(patterns);
     }
 }
