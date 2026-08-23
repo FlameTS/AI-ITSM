@@ -64,14 +64,25 @@ CREATE TABLE AIAnalysis
 (
     AIAnalysisId INT IDENTITY(1,1) PRIMARY KEY,
     IncidentId INT NOT NULL,
+    Status VARCHAR(20) NOT NULL DEFAULT 'Pending',
     SuggestedCategory VARCHAR(100),
     SuggestedPriority VARCHAR(50),
     SuggestedResolution VARCHAR(MAX),
-    RelatedIncidentId INT NULL,
     ConfidenceScore DECIMAL(5,2),
     CreatedAt DATETIME NOT NULL DEFAULT GETDATE(),
 
-    FOREIGN KEY (IncidentId) REFERENCES Incidents(IncidentId),
+    FOREIGN KEY (IncidentId) REFERENCES Incidents(IncidentId)
+);
+
+CREATE TABLE AIAnalysisRelatedIncident
+(
+    AIAnalysisRelatedIncidentId INT IDENTITY(1,1) PRIMARY KEY,
+    AIAnalysisId INT NOT NULL,
+    RelatedIncidentId INT NOT NULL,
+    RelationshipType VARCHAR(20) NOT NULL,
+    SimilarityScore DECIMAL(5,2) NULL,
+
+    FOREIGN KEY (AIAnalysisId) REFERENCES AIAnalysis(AIAnalysisId),
     FOREIGN KEY (RelatedIncidentId) REFERENCES Incidents(IncidentId)
 );
 

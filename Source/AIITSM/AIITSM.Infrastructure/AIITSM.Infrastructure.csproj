@@ -20,13 +20,15 @@
     <Folder Include="07_M7_Automation\" />
   </ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="10.0.11" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="10.0.11" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="10.0.11">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-  </ItemGroup>
+ <ItemGroup>
+  <PackageReference Include="Google.GenAI" Version="1.19.0" />
+  <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="10.0.11" />
+  <PackageReference Include="Microsoft.EntityFrameworkCore" Version="10.0.11" />
+  <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="10.0.11" />
+  <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="10.0.11">
+    <PrivateAssets>all</PrivateAssets>
+    <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+  </PackageReference>
+</ItemGroup>
 
 </Project>

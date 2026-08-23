@@ -1,0 +1,504 @@
+@using AIITSM.Domain._02_M2_IncidentManagement
+@model AIITSM.Application._02_M2_IncidentManagement.IncidentDetailsDto
+
+@{
+    ViewData["Title"] = "Incident Details";
+}
+
+<div class="container mt-4">
+
+    <h1>Incident Details</h1>
+
+    <hr />
+
+    @if (TempData["Message"] != null)
+    {
+        <div class="alert alert-success">
+            @TempData["Message"]
+        </div>
+    }
+
+    <!-- Incident Details Card -->
+    <div class="card mb-4">
+        <div class="card-header">
+            <h4>@Model.IncidentNumber &mdash; @Model.Title</h4>
+        </div>
+
+        <div class="card-body">
+
+            <p>
+                <strong>Status:</strong>
+                <span class="badge bg-secondary">@Model.Status</span>
+            </p>
+
+            <p>
+                <strong>Priority:</strong>
+                @Model.Priority
+            </p>
+
+            <p>
+                <strong>Category:</strong>
+                @Model.CategoryName
+            </p>
+
+            <p>
+                <strong>Description:</strong><br />
+                @Model.Description
+            </p>
+
+            <p>
+                <strong>Created At:</strong>
+                @Model.CreatedAt.ToString("dd MMM yyyy HH:mm")
+            </p>
+
+            <p>
+                <strong>Resolved At:</strong>
+                @(Model.ResolvedAt.HasValue
+                    ? Model.ResolvedAt.Value.ToString("dd MMM yyyy HH:mm")
+                    : "Not resolved yet")
+            </p>
+
+        </div>
+    </div>
+
+
+    <!-- Communication Card -->
+    <div class="card mb-4">
+        <div class="card-header">
+            <h4>Communication</h4>
+        </div>
+
+        <div class="card-body">
+
+            <div id="commentMessage"></div>
+
+            <div id="commentsContainer">
+                <p class="text-muted">Loading comments...</p>
+            </div>
+
+            <hr />
+
+            <form id="commentForm">
+                @Html.AntiForgeryToken()
+
+                <input type="hidden"
+                       id="incidentId"
+                       value="@Model.IncidentId" />
+
+                <div class="mb-3">
+                    <label for="commentText" class="form-label">
+                        Add a comment
+                    </label>
+
+                    <textarea id="commentText"
+                              name="commentText"
+                              class="form-control"
+                              rows="4"
+                              placeholder="Write your message..."
+                              required></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary">
+                    Add Comment
+                </button>
+            </form>
+
+        </div>
+    </div>
+
+    <!-- Attachments Card -->
+    <div class="card mb-4">
+        <div class="card-header">
+            <h4>Attachments / Supporting Information</h4>
+        </div>
+
+        <div class="card-body">
+
+            @if (TempData["AttachmentMessage"] != null)
+            {
+                <div class="alert alert-success">
+                    @TempData["AttachmentMessage"]
+                </div>
+            }
+
+            @if (TempData["AttachmentError"] != null)
+            {
+                <div class="alert alert-danger">
+                    @TempData["AttachmentError"]
+                </div>
+            }
+
+            <form asp-controller="IncidentAttachment"
+                  asp-action="Upload"
+                  method="post"
+                  enctype="multipart/form-data">
+
+                @Html.AntiForgeryToken()
+
+                <input type="hidden"
+                       name="incidentId"
+                       value="@Model.IncidentId" />
+
+                <div class="mb-3">
+                    <label for="file" class="form-label">
+                        Supporting file
+                    </label>
+
+                    <input type="file"
+                           id="file"
+                           name="file"
+                           class="form-control"
+                           required />
+
+                    <div class="form-text">
+                        Maximum size: 10 MB.
+                        Supported: PDF, PNG, JPG, JPEG, DOC, DOCX, TXT.
+                    </div>
+                </div>
+
+                <button type="submit"
+                        class="btn btn-primary">
+                    Upload Attachment
+                </button>
+
+            </form>
+
+            <hr />
+
+            <h5>Uploaded Attachments</h5>
+
+            <div id="attachmentsContainer">
+                <p class="text-muted">
+                    Loading attachments...
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Feedback Card -->
+    <div class="card mb-4">
+        <div class="card-header">
+            <h4>Feedback</h4>
+        </div>
+
+        <div class="card-body">
+
+            @if (Model.Status == IncidentStatus.Resolved)
+            {
+                @if (TempData["FeedbackSuccess"] != null)
+                {
+                    <div class="alert alert-success">
+                        @TempData["FeedbackSuccess"]
+                    </div>
+                }
+
+                @if (TempData["FeedbackError"] != null)
+                {
+                    <div class="alert alert-danger">
+                        @TempData["FeedbackError"]
+                    </div>
+                }
+
+                <div id="feedbackContainer">
+                    <p class="text-muted">
+                        Loading feedback...
+                    </p>
+                </div>
+            }
+            else
+            {
+                <p class="text-muted mb-0">
+                    Feedback can be provided after the incident is resolved.
+                </p>
+            }
+
+        </div>
+    </div>
+
+    <!-- Back Button -->
+    <a asp-controller="Incident" asp-action="Index" class="btn btn-link">
+        &larr; Back to My Incidents
+    </a>
+
+</div>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const incidentId =
+            document.getElementById("incidentId").value;
+
+        const commentsContainer =
+            document.getElementById("commentsContainer");
+
+        const commentForm =
+            document.getElementById("commentForm");
+
+        const commentText =
+            document.getElementById("commentText");
+
+        const commentMessage =
+            document.getElementById("commentMessage");
+
+
+        async function loadComments() {
+
+            const response = await fetch(
+                `/IncidentCommunication/Comments?incidentId=${incidentId}`
+            );
+
+            if (!response.ok) {
+
+                commentsContainer.innerHTML =
+                    '<p class="text-danger">Unable to load comments.</p>';
+
+                return;
+            }
+
+            const comments = await response.json();
+
+            if (comments.length === 0) {
+
+                commentsContainer.innerHTML =
+                    '<p class="text-muted">No comments yet.</p>';
+
+                return;
+            }
+
+            commentsContainer.innerHTML = "";
+
+            comments.forEach(comment => {
+
+                const commentDiv =
+                    document.createElement("div");
+
+                commentDiv.className =
+                    "border rounded p-3 mb-3";
+
+                const date =
+                    new Date(comment.createdAt)
+                        .toLocaleString();
+
+                commentDiv.innerHTML = `
+                    <div class="small text-muted mb-2">
+                        User ${comment.userId} · ${date}
+                    </div>
+                    <div>${escapeHtml(comment.commentText)}</div>
+                `;
+
+                commentsContainer.appendChild(commentDiv);
+            });
+        }
+
+
+        commentForm.addEventListener(
+            "submit",
+            async function (event) {
+
+                event.preventDefault();
+
+                const text =
+                    commentText.value.trim();
+
+                if (!text) {
+                    return;
+                }
+
+                const token =
+                    document.querySelector(
+                        '#commentForm input[name="__RequestVerificationToken"]'
+                    ).value;
+
+                const formData =
+                    new URLSearchParams();
+
+                formData.append(
+                    "incidentId",
+                    incidentId
+                );
+
+                formData.append(
+                    "commentText",
+                    text
+                );
+
+                formData.append(
+                    "__RequestVerificationToken",
+                    token
+                );
+
+
+                const response = await fetch(
+                    "/IncidentCommunication/AddComment",
+                    {
+                        method: "POST",
+                        headers: {
+                            "Content-Type":
+                                "application/x-www-form-urlencoded"
+                        },
+                        body: formData
+                    }
+                );
+
+
+                if (response.ok || response.redirected) {
+
+                    commentText.value = "";
+
+                    commentMessage.innerHTML =
+                        '<div class="alert alert-success">' +
+                        'Comment added successfully.' +
+                        '</div>';
+
+                    await loadComments();
+
+                }
+                else {
+
+                    commentMessage.innerHTML =
+                        '<div class="alert alert-danger">' +
+                        'Unable to add comment.' +
+                        '</div>';
+                }
+            }
+        );
+
+
+        function escapeHtml(value) {
+
+            const div =
+                document.createElement("div");
+
+            div.textContent = value;
+
+            return div.innerHTML;
+        }
+
+        async function loadAttachments() {
+
+            const attachmentsContainer =
+                document.getElementById("attachmentsContainer");
+
+            const response = await fetch(
+                `/IncidentAttachment/List?incidentId=${incidentId}`
+            );
+
+            if (!response.ok) {
+
+                attachmentsContainer.innerHTML =
+                    '<p class="text-danger">Unable to load attachments.</p>';
+
+                return;
+            }
+
+            const html = await response.text();
+
+            attachmentsContainer.innerHTML = html;
+        }
+
+        async function loadFeedback() {
+
+            const feedbackContainer =
+                document.getElementById("feedbackContainer");
+
+            if (!feedbackContainer) {
+                return;
+            }
+
+            const response = await fetch(
+                `/IncidentFeedback/Get?incidentId=${incidentId}`
+            );
+
+            if (!response.ok) {
+
+                feedbackContainer.innerHTML =
+                    '<p class="text-danger">Unable to load feedback.</p>';
+
+                return;
+            }
+
+            const html = await response.text();
+
+            feedbackContainer.innerHTML = html;
+
+            const feedbackForm =
+                feedbackContainer.querySelector("form");
+
+            if (!feedbackForm) {
+                return;
+            }
+
+            feedbackForm.addEventListener(
+                "submit",
+                async function(event) {
+
+                    event.preventDefault();
+
+                    const feedbackText =
+                        feedbackForm.querySelector(
+                            "#feedbackText"
+                        ).value;
+
+                    const token =
+                        feedbackForm.querySelector(
+                            'input[name="__RequestVerificationToken"]'
+                        ).value;
+
+                    const formData =
+                        new URLSearchParams();
+
+                    formData.append(
+                        "incidentId",
+                        incidentId
+                    );
+
+                    formData.append(
+                        "feedbackText",
+                        feedbackText
+                    );
+
+                    formData.append(
+                        "__RequestVerificationToken",
+                        token
+                    );
+
+                    const submitResponse =
+                        await fetch(
+                            "/IncidentFeedback/Submit",
+                            {
+                                method: "POST",
+                                headers: {
+                                    "Content-Type":
+                                        "application/x-www-form-urlencoded"
+                                },
+                                body: formData
+                            }
+                        );
+
+                    if (submitResponse.ok ||
+                        submitResponse.redirected) {
+
+                        window.location.reload();
+
+                    }
+                    else {
+
+                        feedbackContainer.insertAdjacentHTML(
+                            "afterbegin",
+                            '<div class="alert alert-danger">' +
+                            'Unable to submit feedback.' +
+                            '</div>'
+                        );
+                    }
+                }
+            );
+        }
+
+        loadComments();
+        loadAttachments();
+        loadFeedback();
+
+    });
+</script>

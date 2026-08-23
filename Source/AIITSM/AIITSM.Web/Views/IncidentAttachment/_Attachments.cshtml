@@ -1,0 +1,29 @@
+﻿@model IReadOnlyList<AIITSM.Application._02_M2_IncidentManagement_2.Attachments.IncidentAttachmentDto>
+
+@if (Model == null || Model.Count == 0)
+{
+    <p class="text-muted">
+        No attachments uploaded yet.
+    </p>
+}
+else
+{
+    foreach (var attachment in Model)
+    {
+        <div class="border rounded p-3 mb-2">
+
+            <strong>
+                @attachment.FileName
+            </strong>
+
+            <div class="small text-muted">
+                @attachment.ContentType
+                ·
+                @($"{attachment.FileSize / 1024.0:F1} KB")
+                ·
+                @attachment.UploadedAt.ToString("dd MMM yyyy HH:mm")
+            </div>
+
+        </div>
+    }
+}

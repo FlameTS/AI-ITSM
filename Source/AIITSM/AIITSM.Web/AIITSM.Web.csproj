@@ -15,8 +15,12 @@
     <Folder Include="Controllers\03_M3_AgentWorkflow\" />
     <Folder Include="Controllers\04_M4_Administration\" />
     <Folder Include="Controllers\05_M5_Reporting\" />
-    <Folder Include="Controllers\06_M6_AI\" />
     <Folder Include="Controllers\07_M7_Automation\" />
+    <Folder Include="wwwroot\uploads\incidents\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DotNetEnv" Version="3.2.0" />
   </ItemGroup>
 
   <ItemGroup>

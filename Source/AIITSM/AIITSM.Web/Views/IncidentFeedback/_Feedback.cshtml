@@ -1,0 +1,66 @@
+﻿@model AIITSM.Application._02_M2_IncidentManagement_2.Feedback.IncidentFeedbackDto?
+
+<div id="feedbackContent">
+
+    @if (Model != null)
+    {
+        <div class="alert alert-success">
+            <strong>Feedback submitted.</strong>
+        </div>
+
+        @if (!string.IsNullOrWhiteSpace(Model.FeedbackText))
+        {
+            <div class="border rounded p-3">
+                <div class="small text-muted mb-2">
+                    Submitted @Model.CreatedAt.ToString("dd MMM yyyy HH:mm")
+                </div>
+
+                <div>
+                    @Model.FeedbackText
+                </div>
+            </div>
+        }
+        else
+        {
+            <p class="text-muted">
+                Feedback was submitted without written comments.
+            </p>
+        }
+    }
+    else
+    {
+        <form asp-controller="IncidentFeedback"
+              asp-action="Submit"
+              method="post">
+
+            @Html.AntiForgeryToken()
+
+            <input type="hidden"
+                   name="incidentId"
+                   value="@ViewData["IncidentId"]" />
+
+            <div class="mb-3">
+                <label for="feedbackText" class="form-label">
+                    Your feedback
+                </label>
+
+                <textarea id="feedbackText"
+                          name="feedbackText"
+                          class="form-control"
+                          rows="4"
+                          placeholder="Share your feedback about the incident resolution..."></textarea>
+
+                <div class="form-text">
+                    Written feedback is optional.
+                </div>
+            </div>
+
+            <button type="submit"
+                    class="btn btn-primary">
+                Submit Feedback
+            </button>
+
+        </form>
+    }
+
+</div>
