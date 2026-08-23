@@ -1,55 +1,131 @@
+using AITSM.Application._01_M1_IdentityAccess.Interfaces;
+using AITSM.Infrastructure._01_M1_IdentityAccess.Identity;
+using AIITSM.Web._01_M1_IdentityAccess.Services;
+
 using AIITSM.Application._02_M2_IncidentManagement;
 using AIITSM.Application._02_M2_IncidentManagement_2.Attachments;
 using AIITSM.Application._02_M2_IncidentManagement_2.Communication;
 using AIITSM.Application._02_M2_IncidentManagement_2.Feedback;
 using AIITSM.Application._02_M2_IncidentManagement_2.Notifications;
+using AIITSM.Application._03_M3_AgentWorkflow;
+using AIITSM.Infrastructure._03_M3_AgentWorkflow;
+
+
 using AIITSM.Application._06_M6_AI.Providers;
 using AIITSM.Application._06_M6_AI.Services;
+
 using AIITSM.Application.Common;
+
 using AIITSM.Infrastructure._02_M2_IncidentManagement;
 using AIITSM.Infrastructure._02_M2_IncidentManagement_2.Attachments;
 using AIITSM.Infrastructure._02_M2_IncidentManagement_2.Communication;
 using AIITSM.Infrastructure._02_M2_IncidentManagement_2.Feedback;
 using AIITSM.Infrastructure._02_M2_IncidentManagement_2.Notifications;
+
+
+
 using AIITSM.Infrastructure._06_M6_AI;
 using AIITSM.Infrastructure._06_M6_AI.Providers;
 using AIITSM.Infrastructure._06_M6_AI.Services;
-using AIITSM.Web.Common;
-using DotNetEnv;
-using Microsoft.EntityFrameworkCore;
-using AIITSM.Application._03_M3_AgentWorkflow;
-using AIITSM.Infrastructure._03_M3_AgentWorkflow;
 
+using AIITSM.Web.Common;
+
+using DotNetEnv;
+
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+
+
+// Avoid collision between the two ICurrentUserService interfaces.
+using IdentityCurrentUserService =
+    AITSM.Application._01_M1_IdentityAccess.Interfaces.ICurrentUserService;
+
+using IncidentCurrentUserService =
+    AIITSM.Application.Common.ICurrentUserService;
 
 namespace AIITSM.Web
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
+            // Load .env for Gemini configuration
             Env.TraversePath().Load();
 
-            var geminiKey = Environment.GetEnvironmentVariable("GEMINI_API_KEY");
+            var geminiKey =
+                Environment.GetEnvironmentVariable("GEMINI_API_KEY");
 
             Console.WriteLine(
                 string.IsNullOrWhiteSpace(geminiKey)
-                    ? "❌ GEMINI_API_KEY not loaded"
-                    : "✅ GEMINI_API_KEY loaded");
+                    ? "GEMINI_API_KEY not loaded"
+                    : "GEMINI_API_KEY loaded");
 
             var builder = WebApplication.CreateBuilder(args);
 
+            // MVC
+            builder.Services.AddControllersWithViews();
+
+            // -------------------------------------------------
+            // Main project database
+            // Incident Management / AI / Agent Workflow
+            // -------------------------------------------------
             builder.Services.AddDbContext<AIITSMDbContext>(options =>
                 options.UseSqlServer(
-                    builder.Configuration.GetConnectionString("AIITSMDatabase")));
+                    builder.Configuration.GetConnectionString(
+                        "AIITSMDatabase")));
 
-            builder.Services.AddScoped<IAIAnalysisService, AIAnalysisService>();
+            // -------------------------------------------------
+            // Identity database
+            // -------------------------------------------------
+            builder.Services.AddDbContext<ApplicationDbContext>(options =>
+                options.UseSqlServer(
+                    builder.Configuration.GetConnectionString(
+                        "DefaultConnection")));
 
-            builder.Services.AddScoped<IAIProvider, GeminiProvider>();
+            // -------------------------------------------------
+            // ASP.NET Core Identity
+            // -------------------------------------------------
+            builder.Services
+                .AddIdentity<ApplicationUser, ApplicationRole>(options =>
+                {
+                    options.User.RequireUniqueEmail = true;
+                })
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddDefaultTokenProviders();
 
-            // M2 — Incident Management.
-            builder.Services.AddScoped<IIncidentService, IncidentService>();
+            builder.Services.ConfigureApplicationCookie(options =>
+            {
+                options.LoginPath = "/Account/Login";
+                options.AccessDeniedPath = "/Account/AccessDenied";
+            });
 
-            //M2_2
+            // -------------------------------------------------
+            // M1 - Identity current user service
+            // -------------------------------------------------
+            builder.Services.AddHttpContextAccessor();
+
+            builder.Services.AddScoped<
+                IdentityCurrentUserService,
+                CurrentUserService>();
+
+            // -------------------------------------------------
+            // M6 - AI
+            // -------------------------------------------------
+            builder.Services.AddScoped<
+                IAIAnalysisService,
+                AIAnalysisService>();
+
+            builder.Services.AddScoped<
+                IAIProvider,
+                GeminiProvider>();
+
+            // -------------------------------------------------
+            // M2 - Incident Management
+            // -------------------------------------------------
+            builder.Services.AddScoped<
+                IIncidentService,
+                IncidentService>();
+
             builder.Services.AddScoped<
                 IIncidentCommentService,
                 IncidentCommentService>();
@@ -62,34 +138,63 @@ namespace AIITSM.Web
                 IIncidentAttachmentService,
                 IncidentAttachmentService>();
 
-            builder.Services.AddScoped<IIncidentFeedbackService, IncidentFeedbackService>();
+            builder.Services.AddScoped<
+                IIncidentFeedbackService,
+                IncidentFeedbackService>();
 
-            // M3 — Agent Workflow integration.
-            builder.Services.AddScoped<IIncidentAssignmentService, IncidentAssignmentService>();
+            // -------------------------------------------------
+            // M3 - Agent Workflow
+            // -------------------------------------------------
+            builder.Services.AddScoped<
+                IIncidentAssignmentService,
+                IncidentAssignmentService>();
 
-            // TEMP until M1 (Identity/Access) ships real login — see
-            // Web/Common/DemoCurrentUserService.cs for details.
-            builder.Services.AddScoped<ICurrentUserService, DemoCurrentUserService>();
-
-            // Add services to the container.
-            builder.Services.AddControllersWithViews();
+            // -------------------------------------------------
+            // Temporary M2 current-user implementation
+            // -------------------------------------------------
+            builder.Services.AddScoped<
+                IncidentCurrentUserService,
+                DemoCurrentUserService>();
 
             var app = builder.Build();
 
-            // Configure the HTTP request pipeline.
+            // -------------------------------------------------
+            // Seed Identity roles and administrator
+            // -------------------------------------------------
+            using (var scope = app.Services.CreateScope())
+            {
+                var roleManager =
+                    scope.ServiceProvider
+                        .GetRequiredService<RoleManager<ApplicationRole>>();
+
+                var userManager =
+                    scope.ServiceProvider
+                        .GetRequiredService<UserManager<ApplicationUser>>();
+
+                await IdentitySeeder.SeedRolesAndAdminAsync(
+                    roleManager,
+                    userManager,
+                    builder.Configuration);
+            }
+
+            // -------------------------------------------------
+            // HTTP Pipeline
+            // -------------------------------------------------
             if (!app.Environment.IsDevelopment())
             {
                 app.UseExceptionHandler("/Home/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
 
             app.UseHttpsRedirection();
+
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.MapStaticAssets();
+
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}")
