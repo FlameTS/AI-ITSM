@@ -4,10 +4,13 @@ using AIITSM.Application._03_M3_AgentWorkflow;
 using AIITSM.Application.Common;
 using AIITSM.Domain._02_M2_IncidentManagement;
 using AIITSM.Web.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AIITSM.Web.Controllers
 {
+    // Agents work incidents day-to-day; managers can step in when needed.
+    [Authorize(Roles = "HelpDeskAgent,ITManager")]
     public class AgentWorkflowController : Controller
     {
         private readonly IIncidentService _incidentService;
@@ -25,6 +28,17 @@ namespace AIITSM.Web.Controllers
             _commentService = commentService;
             _assignmentService = assignmentService;
             _currentUser = currentUser;
+        }
+
+        // GET: /AgentWorkflow/Queue
+        // A discoverable landing page: lists open/unresolved incidents so
+        // agents no longer have to guess an incident ID and type it into
+        // the URL bar. Pulls from the existing /api/reporting/unresolved
+        // endpoint client-side.
+        [HttpGet]
+        public IActionResult Queue()
+        {
+            return View();
         }
 
         public async Task<IActionResult> Index(int id = 1)

@@ -1,8 +1,117 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+@{
+    ViewData["Title"] = "Home";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container mt-4">
+
+    @if (!User.Identity!.IsAuthenticated)
+    {
+        <div class="text-center py-5">
+            <h1 class="display-5 fw-bold">AI-ITSM</h1>
+            <p class="text-muted">AI-Powered IT Service Management and Incident Resolution Platform.</p>
+            <a class="btn btn-primary" asp-controller="Account" asp-action="Login">Login</a>
+        </div>
+    }
+    else
+    {
+        <h1 class="mb-1">Welcome, @User.Identity.Name</h1>
+        <p class="text-muted mb-4">Here's where you can go from here.</p>
+
+        <div class="row g-3">
+
+            @if (User.IsInRole("Employee"))
+            {
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">My Incidents</h5>
+                            <p class="card-text text-muted">View incidents you've reported and their status.</p>
+                            <a class="btn btn-outline-primary" asp-controller="Incident" asp-action="Index">Go to My Dashboard</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Report an Incident</h5>
+                            <p class="card-text text-muted">Something not working? Log a new incident.</p>
+                            <a class="btn btn-outline-primary" asp-controller="Incident" asp-action="Create">Report Incident</a>
+                        </div>
+                    </div>
+                </div>
+            }
+
+            @if (User.IsInRole("HelpDeskAgent"))
+            {
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Agent Queue</h5>
+                            <p class="card-text text-muted">Open incidents waiting to be worked.</p>
+                            <a class="btn btn-outline-primary" asp-controller="AgentWorkflow" asp-action="Queue">Open Queue</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Automation</h5>
+                            <p class="card-text text-muted">Trigger notifications and escalations manually.</p>
+                            <a class="btn btn-outline-primary" asp-controller="Automation" asp-action="Index">Open Automation</a>
+                        </div>
+                    </div>
+                </div>
+            }
+
+            @if (User.IsInRole("ITManager"))
+            {
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Reports</h5>
+                            <p class="card-text text-muted">Incident statistics, team performance, and trends.</p>
+                            <a class="btn btn-outline-primary" asp-controller="Reports" asp-action="Index">View Reports</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Agent Queue</h5>
+                            <p class="card-text text-muted">See what's still unresolved across the team.</p>
+                            <a class="btn btn-outline-primary" asp-controller="AgentWorkflow" asp-action="Queue">Open Queue</a>
+                        </div>
+                    </div>
+                </div>
+            }
+
+            @if (User.IsInRole("ITAdministrator"))
+            {
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Admin Dashboard</h5>
+                            <p class="card-text text-muted">Users, roles, and system-wide administration.</p>
+                            <a class="btn btn-outline-primary" asp-controller="AdminDashboard" asp-action="Index">Go to Dashboard</a>
+                        </div>
+                    </div>
+                </div>
+            }
+
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Notifications</h5>
+                        <p class="card-text text-muted">Updates on incidents you're involved with.</p>
+                        <a class="btn btn-outline-primary" asp-controller="Notification" asp-action="Index">View Notifications</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    }
+
 </div>

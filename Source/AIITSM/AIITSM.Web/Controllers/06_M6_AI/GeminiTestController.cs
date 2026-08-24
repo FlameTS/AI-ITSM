@@ -1,8 +1,12 @@
 ﻿using AIITSM.Application._06_M6_AI.Providers;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AIITSM.Web.Controllers._06_M6_AI
 {
+    // Dev/diagnostic endpoint — not part of any actor's workflow, not
+    // linked from any menu. Locked to admins so it isn't wide open.
+    [Authorize(Roles = "ITAdministrator")]
     public class GeminiTestController : Controller
     {
         private readonly IAIProvider _aiProvider;

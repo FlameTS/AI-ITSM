@@ -1,10 +1,12 @@
 using AIITSM.Application.Reporting;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AIITSM.Web.Controllers._05_M5_Reporting;
 
 [Route("api/reporting")]
 [ApiController]
+[Authorize(Roles = "ITManager,ITAdministrator")]
 public class ReportingController : ControllerBase
 {
     private readonly IReportingService _reportingService;

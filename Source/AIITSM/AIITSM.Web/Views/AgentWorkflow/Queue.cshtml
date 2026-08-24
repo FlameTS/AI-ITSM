@@ -1,0 +1,99 @@
+@{
+    ViewData["Title"] = "Agent Queue";
+}
+
+<div class="container mt-4">
+
+    <h1>Agent Queue</h1>
+    <p class="text-muted">Open incidents. Click one to open its workflow page.</p>
+
+    <hr />
+
+    <div id="queueContainer">
+        <span class="text-muted">Loading…</span>
+    </div>
+
+</div>
+
+@section Scripts {
+    <script>
+        // Pulls from the existing /api/reporting/unresolved endpoint so
+        // agents have somewhere to click instead of typing an incident ID
+        // into the URL bar. Field names are read defensively since the
+        // exact DTO shape isn't assumed here.
+        function firstDefined(obj, keys) {
+            for (const key of keys) {
+                if (obj[key] !== undefined && obj[key] !== null) {
+                    return obj[key];
+                }
+            }
+            return undefined;
+        }
+
+        async function loadQueue() {
+            const container = document.getElementById("queueContainer");
+
+            try {
+                const response = await fetch("/api/reporting/unresolved");
+
+                if (!response.ok) {
+                    container.innerHTML = `<div class="alert alert-danger">Could not load the queue (${response.status}).</div>`;
+                    return;
+                }
+
+                const incidents = await response.json();
+
+                if (!Array.isArray(incidents) || incidents.length === 0) {
+                    container.innerHTML = '<div class="alert alert-info">No unresolved incidents right now.</div>';
+                    return;
+                }
+
+                const table = document.createElement("table");
+                table.className = "table table-striped";
+                table.innerHTML = `
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Title</th>
+                            <th>Priority</th>
+                            <th>Status</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                `;
+
+                const tbody = document.createElement("tbody");
+
+                incidents.forEach(incident => {
+                    const id = firstDefined(incident, ["incidentId", "IncidentId", "id", "Id"]);
+                    const title = firstDefined(incident, ["title", "Title"]) ?? "(untitled)";
+                    const priority = firstDefined(incident, ["priority", "Priority"]) ?? "";
+                    const status = firstDefined(incident, ["status", "Status"]) ?? "";
+
+                    const tr = document.createElement("tr");
+                    tr.innerHTML = `
+                        <td>${id ?? ""}</td>
+                        <td>${title}</td>
+                        <td>${priority}</td>
+                        <td>${status}</td>
+                        <td>
+                            ${id !== undefined
+                                ? `<a class="btn btn-sm btn-outline-primary" href="/AgentWorkflow/Index?id=${id}">Open</a>`
+                                : ""}
+                        </td>
+                    `;
+
+                    tbody.appendChild(tr);
+                });
+
+                table.appendChild(tbody);
+                container.innerHTML = "";
+                container.appendChild(table);
+            } catch (err) {
+                container.innerHTML = '<div class="alert alert-danger">Could not load the queue.</div>';
+            }
+        }
+
+        loadQueue();
+    </script>
+}

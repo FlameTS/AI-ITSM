@@ -1,9 +1,13 @@
 ﻿using AIITSM.Application._06_M6_AI.Contracts;
 using AIITSM.Application._06_M6_AI.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AIITSM.Web.Controllers._06_M6_AI
 {
+    // Dev/diagnostic endpoint — not part of any actor's workflow, not
+    // linked from any menu. Locked to admins so it isn't wide open.
+    [Authorize(Roles = "ITAdministrator")]
     public class AIAnalysisTestController : Controller
     {
         private readonly IAIAnalysisService _aiAnalysisService;

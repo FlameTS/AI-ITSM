@@ -1,9 +1,12 @@
 ﻿using AIITSM.Application._02_M2_IncidentManagement_2.Feedback;
 using AIITSM.Application.Common;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AIITSM.Web.Controllers._02_M2_IncidentManagement_2
 {
+    // Feedback is submitted by the employee who reported the incident.
+    [Authorize(Roles = "Employee")]
     public class IncidentFeedbackController : Controller
     {
         private readonly IIncidentFeedbackService _feedbackService;

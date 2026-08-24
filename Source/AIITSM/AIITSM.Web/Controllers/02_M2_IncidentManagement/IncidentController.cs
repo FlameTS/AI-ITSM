@@ -4,9 +4,17 @@ using AIITSM.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 using AIITSM.Application._06_M6_AI.Contracts;
 using AIITSM.Application._06_M6_AI.Services;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AIITSM.Web.Controllers._02_M2_IncidentManagement
 {
+    // Any authenticated user can hit this controller (Details is used by
+    // Employees viewing their own incident, and by Agents/Managers/Admins
+    // arriving from Notifications, the Agent Queue, or Reports).
+    // Index/Create are further locked to Employees below, since they use
+    // GetMyIncidentsAsync — the "my incidents" view only makes sense for
+    // the employee who filed them.
+    [Authorize]
     public class IncidentController : Controller
     {
         private readonly IIncidentService _incidentService;
@@ -25,6 +33,7 @@ namespace AIITSM.Web.Controllers._02_M2_IncidentManagement
 
         // GET: /Incident  (My Incidents — only the logged-in employee's own incidents)
         [HttpGet]
+        [Authorize(Roles = "Employee")]
         public async Task<IActionResult> Index()
         {
             var incidents = await _incidentService.GetMyIncidentsAsync(_currentUser.UserId);
@@ -47,6 +56,7 @@ namespace AIITSM.Web.Controllers._02_M2_IncidentManagement
 
         // GET: /Incident/Create
         [HttpGet]
+        [Authorize(Roles = "Employee")]
         public async Task<IActionResult> Create()
         {
             var viewModel = new CreateIncidentViewModel
@@ -59,6 +69,7 @@ namespace AIITSM.Web.Controllers._02_M2_IncidentManagement
 
         // POST: /Incident/Create
         [HttpPost]
+        [Authorize(Roles = "Employee")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(CreateIncidentViewModel model)
         {

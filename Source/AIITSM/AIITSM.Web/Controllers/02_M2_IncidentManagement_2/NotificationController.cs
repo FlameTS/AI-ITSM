@@ -1,9 +1,12 @@
 ﻿using AIITSM.Application._02_M2_IncidentManagement_2.Notifications;
 using AIITSM.Application.Common;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AIITSM.Web.Controllers._02_M2_IncidentManagement_2
 {
+    // Every actor gets their own notifications.
+    [Authorize]
     public class NotificationController : Controller
     {
         private readonly INotificationService _notificationService;

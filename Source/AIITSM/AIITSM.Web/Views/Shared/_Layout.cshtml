@@ -74,15 +74,55 @@
                                         Create User
                                     </a>
                                 </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link"
+                                       asp-controller="Administration"
+                                       asp-action="Users">
+                                        Roles &amp; Status
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link"
+                                       asp-controller="Administration"
+                                       asp-action="Categories">
+                                        Categories
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link"
+                                       asp-controller="Reports"
+                                       asp-action="Index">
+                                        Reports
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link"
+                                       asp-controller="Automation"
+                                       asp-action="Index">
+                                        Automation
+                                    </a>
+                                </li>
                             }
 
                             @if (User.IsInRole("Employee"))
                             {
                                 <li class="nav-item">
                                     <a class="nav-link"
-                                       asp-controller="Home"
+                                       asp-controller="Incident"
                                        asp-action="Index">
                                         My Dashboard
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link"
+                                       asp-controller="Incident"
+                                       asp-action="Create">
+                                        Report Incident
                                     </a>
                                 </li>
                             }
@@ -91,9 +131,17 @@
                             {
                                 <li class="nav-item">
                                     <a class="nav-link"
-                                       asp-controller="Home"
+                                       asp-controller="AgentWorkflow"
+                                       asp-action="Queue">
+                                        Agent Queue
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link"
+                                       asp-controller="Automation"
                                        asp-action="Index">
-                                        Agent Dashboard
+                                        Automation
                                     </a>
                                 </li>
                             }
@@ -102,12 +150,36 @@
                             {
                                 <li class="nav-item">
                                     <a class="nav-link"
-                                       asp-controller="Home"
+                                       asp-controller="Reports"
                                        asp-action="Index">
-                                        Manager Dashboard
+                                        Reports
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link"
+                                       asp-controller="AgentWorkflow"
+                                       asp-action="Queue">
+                                        Agent Queue
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link"
+                                       asp-controller="Automation"
+                                       asp-action="Index">
+                                        Automation
                                     </a>
                                 </li>
                             }
+
+                            <li class="nav-item">
+                                <a class="nav-link"
+                                   asp-controller="Notification"
+                                   asp-action="Index">
+                                    Notifications
+                                </a>
+                            </li>
 
                         </ul>
 

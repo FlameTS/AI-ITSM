@@ -1,10 +1,15 @@
 ﻿using AIITSM.Application._02_M2_IncidentManagement;
 using AIITSM.Application._02_M2_IncidentManagement_2.Attachments;
 using AIITSM.Application.Common;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AIITSM.Web.Controllers._02_M2_IncidentManagement_2
 {
+    // OwnsIncidentAsync() only checks the current employee's own incidents,
+    // so this stays Employee-only until agents/managers get their own
+    // attachment-viewing path.
+    [Authorize(Roles = "Employee")]
     public class IncidentAttachmentController : Controller
     {
         private readonly IIncidentAttachmentService _attachmentService;

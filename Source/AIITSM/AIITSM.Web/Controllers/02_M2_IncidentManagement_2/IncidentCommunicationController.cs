@@ -1,9 +1,13 @@
 ﻿using AIITSM.Application._02_M2_IncidentManagement_2.Communication;
 using AIITSM.Application.Common;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AIITSM.Web.Controllers._02_M2_IncidentManagement_2
 {
+    // Any authenticated actor can comment on an incident thread
+    // (Employee, HelpDeskAgent, ITManager, ITAdministrator).
+    [Authorize]
     public class IncidentCommunicationController : Controller
     {
         private readonly IIncidentCommentService _commentService;

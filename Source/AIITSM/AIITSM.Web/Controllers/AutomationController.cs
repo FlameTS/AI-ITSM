@@ -1,8 +1,12 @@
 ﻿using AIITSM.Application._07_M7_Automation;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AIITSM.Web.Controllers
 {
+    // Manual automation triggers (notifications, escalation) are for staff
+    // who work incidents, not employees.
+    [Authorize(Roles = "HelpDeskAgent,ITManager,ITAdministrator")]
     public class AutomationController : Controller
     {
         private readonly IAutomationService _automationService;

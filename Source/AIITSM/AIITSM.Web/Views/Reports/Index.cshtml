@@ -1,0 +1,132 @@
+@{
+    ViewData["Title"] = "Reports";
+}
+
+<div class="container mt-4">
+
+    <h1>Reports</h1>
+    <p class="text-muted">Live statistics pulled from the reporting API.</p>
+
+    <hr />
+
+    <div class="row g-4">
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-header fw-bold">Incident Statistics</div>
+                <div class="card-body" id="statisticsCard">
+                    <span class="text-muted">Loading…</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-header fw-bold">Team Performance</div>
+                <div class="card-body" id="teamPerformanceCard">
+                    <span class="text-muted">Loading…</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-header fw-bold">Unresolved Incidents</div>
+                <div class="card-body" id="unresolvedCard">
+                    <span class="text-muted">Loading…</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-header fw-bold">Recurring Patterns</div>
+                <div class="card-body" id="recurringCard">
+                    <span class="text-muted">Loading…</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+@section Scripts {
+    <script>
+        // Renders whatever JSON shape the API returns, so this page keeps
+        // working even if the DTOs gain/lose fields later.
+        function renderValue(container, data) {
+            container.innerHTML = "";
+
+            if (data === null || data === undefined) {
+                container.innerHTML = '<span class="text-muted">No data.</span>';
+                return;
+            }
+
+            if (Array.isArray(data)) {
+                if (data.length === 0) {
+                    container.innerHTML = '<span class="text-muted">Nothing to show.</span>';
+                    return;
+                }
+
+                const keys = Object.keys(data[0]);
+                const table = document.createElement("table");
+                table.className = "table table-sm table-striped mb-0";
+
+                const thead = document.createElement("thead");
+                thead.innerHTML = "<tr>" + keys.map(k => `<th>${k}</th>`).join("") + "</tr>";
+                table.appendChild(thead);
+
+                const tbody = document.createElement("tbody");
+                data.forEach(row => {
+                    const tr = document.createElement("tr");
+                    tr.innerHTML = keys.map(k => `<td>${row[k] ?? ""}</td>`).join("");
+                    tbody.appendChild(tr);
+                });
+                table.appendChild(tbody);
+
+                container.appendChild(table);
+                return;
+            }
+
+            if (typeof data === "object") {
+                const dl = document.createElement("dl");
+                dl.className = "row mb-0";
+                Object.entries(data).forEach(([key, value]) => {
+                    const dt = document.createElement("dt");
+                    dt.className = "col-sm-6";
+                    dt.textContent = key;
+
+                    const dd = document.createElement("dd");
+                    dd.className = "col-sm-6";
+                    dd.textContent = value;
+
+                    dl.appendChild(dt);
+                    dl.appendChild(dd);
+                });
+                container.appendChild(dl);
+                return;
+            }
+
+            container.textContent = String(data);
+        }
+
+        async function loadReport(endpoint, containerId) {
+            const container = document.getElementById(containerId);
+            try {
+                const response = await fetch(endpoint);
+                if (!response.ok) {
+                    container.innerHTML = `<span class="text-danger">Failed to load (${response.status}).</span>`;
+                    return;
+                }
+                const data = await response.json();
+                renderValue(container, data);
+            } catch (err) {
+                container.innerHTML = '<span class="text-danger">Failed to load.</span>';
+            }
+        }
+
+        loadReport("/api/reporting/statistics", "statisticsCard");
+        loadReport("/api/reporting/team-performance", "teamPerformanceCard");
+        loadReport("/api/reporting/unresolved", "unresolvedCard");
+        loadReport("/api/reporting/recurring-patterns", "recurringCard");
+    </script>
+}
