@@ -3,6 +3,7 @@ using AIITSM.Domain._02_M2_IncidentManagement;
 using AIITSM.Domain._06_M6_AI;
 using AIITSM.Domain._02_M2_IncidentManagement_2;
 using Microsoft.EntityFrameworkCore;
+using AIITSM.Domain._07_M7_Automation;
 
 
 namespace AIITSM.Infrastructure._06_M6_AI
@@ -29,6 +30,9 @@ namespace AIITSM.Infrastructure._06_M6_AI
 
         //M3
         public DbSet<IncidentAssignment> IncidentAssignments { get; set; }
+
+        //M7
+        public DbSet<Escalation> Escalations { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

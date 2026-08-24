@@ -1,0 +1,97 @@
+{
+  "name": "M7 - Status Change Notification",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "aitsm/status-change",
+        "authentication": "headerAuth",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "785444a0-3a3a-4090-9ea1-e33e7bc297d2",
+      "name": "Webhook",
+      "webhookId": "d0da2687-de0c-4976-90a8-085c7c3db9c1",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "3GRlO5pkg6PiWP7F",
+          "name": "Header Auth account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://localhost:7002/Automation/SendStatusChangeNotification",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "incidentId",
+              "value": "={{ $json.body.incidentId }}"
+            },
+            {
+              "name": "userId",
+              "value": "={{ $json.body.userId }}"
+            },
+            {
+              "name": "newStatus",
+              "value": "={{ $json.body.newStatus }}"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-AIITSM-Webhook-Secret",
+              "value": "AITSM-M7-n8n-secret-2026"
+            }
+          ]
+        },
+        "options": {
+          "allowUnauthorizedCerts": true
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        208,
+        0
+      ],
+      "id": "a47fe65d-caa0-432d-bf26-04bdb0e45c87",
+      "name": "HTTP Request"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "875b810d-49e4-4e3f-b0b1-983f270485f4",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "288f192a1adcab3495f08a815a3b4bfd54e85087202d10462e5b9e8ef6d598e6"
+  },
+  "id": "GtChNNTso8NxOaSO",
+  "tags": []
+}

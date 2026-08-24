@@ -1,0 +1,93 @@
+{
+  "name": "M7 - Assignment Notification",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "aitsm/assignment",
+        "authentication": "headerAuth",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "a38e547b-05aa-415f-aa58-dd3d51b78994",
+      "name": "Webhook",
+      "webhookId": "17e03994-c2d1-4d9b-812b-e26ba0ad3380",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "3GRlO5pkg6PiWP7F",
+          "name": "Header Auth account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://localhost:7002/Automation/SendAssignmentNotification",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "incidentId",
+              "value": "={{ $json.body.incidentId }}"
+            },
+            {
+              "name": "assignedTo",
+              "value": "={{ $json.body.assignedTo }}"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-AIITSM-Webhook-Secret",
+              "value": "AITSM-M7-n8n-secret-2026"
+            }
+          ]
+        },
+        "options": {
+          "allowUnauthorizedCerts": true
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        208,
+        0
+      ],
+      "id": "035bc787-5f65-469e-9871-8799b02257c9",
+      "name": "HTTP Request"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "397dd013-9feb-490e-bd1e-22573687a70b",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "288f192a1adcab3495f08a815a3b4bfd54e85087202d10462e5b9e8ef6d598e6"
+  },
+  "id": "ob4cvWW3rJoofook",
+  "tags": []
+}

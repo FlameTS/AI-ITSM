@@ -1,0 +1,101 @@
+{
+  "name": "M7 - Incident Escalation",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "aitsm/escalation",
+        "authentication": "headerAuth",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "fb63f727-822e-4e7f-8f22-87720ebd0e05",
+      "name": "Webhook",
+      "webhookId": "f37a6693-77a1-4ba1-ae6d-ff8d8b87a8e9",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "3GRlO5pkg6PiWP7F",
+          "name": "Header Auth account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://localhost:7002/Automation/EscalateIncident",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "incidentId",
+              "value": "={{ $json.body.incidentId }}"
+            },
+            {
+              "name": "escalatedBy",
+              "value": "={{ $json.body.escalatedBy }}"
+            },
+            {
+              "name": "escalatedTo",
+              "value": "={{ $json.body.escalatedTo }}"
+            },
+            {
+              "name": "reason",
+              "value": "={{ $json.body.reason }}"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-AIITSM-Webhook-Secret",
+              "value": "AITSM-M7-n8n-secret-2026"
+            }
+          ]
+        },
+        "options": {
+          "allowUnauthorizedCerts": true
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        208,
+        0
+      ],
+      "id": "d60f63c6-cdca-47bd-9a9f-0eacc6f9afd5",
+      "name": "HTTP Request"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "cb9ae228-2ed0-4932-b6f4-88605e757abe",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "288f192a1adcab3495f08a815a3b4bfd54e85087202d10462e5b9e8ef6d598e6"
+  },
+  "id": "B8UWkiaSyDGSYISg",
+  "tags": []
+}

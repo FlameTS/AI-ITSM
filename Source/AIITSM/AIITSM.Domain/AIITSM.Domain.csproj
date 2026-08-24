@@ -11,7 +11,6 @@
     <Folder Include="02_M2_IncidentManagement\" />
     <Folder Include="04_M4_Administration\" />
     <Folder Include="05_M5_Reporting\" />
-    <Folder Include="07_M7_Automation\" />
   </ItemGroup>
 
 </Project>

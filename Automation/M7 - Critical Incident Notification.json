@@ -1,0 +1,93 @@
+{
+  "name": "M7 - Critical Incident Notification",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "aitsm/critical",
+        "authentication": "headerAuth",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "a06d96ec-44e9-40ba-adef-b1e422b67ab6",
+      "name": "Webhook",
+      "webhookId": "97618bf3-687f-4c10-88b9-fcf37515726e",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "3GRlO5pkg6PiWP7F",
+          "name": "Header Auth account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://localhost:7002/Automation/SendCriticalIncidentNotification",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "incidentId",
+              "value": "={{ $json.body.incidentId }}"
+            },
+            {
+              "name": "userId",
+              "value": "={{ $json.body.userId }}"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-AIITSM-Webhook-Secret",
+              "value": "AITSM-M7-n8n-secret-2026"
+            }
+          ]
+        },
+        "options": {
+          "allowUnauthorizedCerts": true
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        208,
+        0
+      ],
+      "id": "4d6f3767-ab66-43d4-8e32-13ba6c2a6b76",
+      "name": "HTTP Request"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "9a6b53eb-7baf-4150-9eac-e022c034e328",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "288f192a1adcab3495f08a815a3b4bfd54e85087202d10462e5b9e8ef6d598e6"
+  },
+  "id": "vp8J2XXKwQwpocR6",
+  "tags": []
+}

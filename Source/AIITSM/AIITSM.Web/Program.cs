@@ -7,6 +7,7 @@ using AIITSM.Application._03_M3_AgentWorkflow;
 using AIITSM.Application._04_M4_Administration.Interfaces;
 using AIITSM.Application._06_M6_AI.Providers;
 using AIITSM.Application._06_M6_AI.Services;
+using AIITSM.Application._07_M7_Automation;
 using AIITSM.Application.Common;
 using AIITSM.Application.Reporting;
 using AIITSM.Infrastructure._02_M2_IncidentManagement;
@@ -20,6 +21,7 @@ using AIITSM.Infrastructure._05_M5_Reporting;
 using AIITSM.Infrastructure._06_M6_AI;
 using AIITSM.Infrastructure._06_M6_AI.Providers;
 using AIITSM.Infrastructure._06_M6_AI.Services;
+using AIITSM.Infrastructure._07_M7_Automation;
 using AIITSM.Web._01_M1_IdentityAccess.Services;
 using AIITSM.Web.Common;
 using AITSM.Application._01_M1_IdentityAccess.Interfaces;
@@ -27,6 +29,7 @@ using AITSM.Infrastructure._01_M1_IdentityAccess.Identity;
 using DotNetEnv;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+
 
 // Avoid collision between the two ICurrentUserService interfaces.
 using IdentityCurrentUserService =
@@ -173,6 +176,11 @@ namespace AIITSM.Web
             builder.Services.AddScoped<
                 IReportingService,
                 ReportingService>();
+
+            //M7
+            builder.Services.AddScoped<
+                IAutomationService,
+                AutomationService>();
 
             var app = builder.Build();
 
