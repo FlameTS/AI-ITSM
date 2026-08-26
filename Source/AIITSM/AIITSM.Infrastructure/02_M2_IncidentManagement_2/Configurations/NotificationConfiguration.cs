@@ -20,7 +20,7 @@ namespace AIITSM.Infrastructure._02_M2_IncidentManagement_2.Configurations
                 .IsRequired();
 
             builder.Property(x => x.CreatedAt)
-                .HasDefaultValueSql("GETDATE()")
+                .HasDefaultValueSql("now()")
                 .IsRequired();
         }
     }

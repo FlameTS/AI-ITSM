@@ -19,7 +19,7 @@ namespace AIITSM.Infrastructure._02_M2_IncidentManagement_2.Configurations
                 .IsRequired(false);
 
             builder.Property(x => x.CreatedAt)
-                .HasDefaultValueSql("GETDATE()")
+                .HasDefaultValueSql("now()")
                 .IsRequired();
 
             builder.HasIndex(x => new { x.IncidentId, x.UserId })

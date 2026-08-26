@@ -29,7 +29,7 @@ namespace AIITSM.Infrastructure._06_M6_AI.Configurations
                 .HasColumnType("decimal(5,2)");
 
             builder.Property(x => x.CreatedAt)
-                .HasDefaultValueSql("GETDATE()")
+                .HasDefaultValueSql("now()")
                 .IsRequired();
         }
     }

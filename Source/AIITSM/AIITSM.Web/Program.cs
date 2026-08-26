@@ -68,7 +68,7 @@ namespace AIITSM.Web
             // M2 / M3 / M6
             // -------------------------------------------------
             builder.Services.AddDbContext<AIITSMDbContext>(options =>
-                options.UseSqlServer(
+                options.UseNpgsql(
                     builder.Configuration.GetConnectionString(
                         "AIITSMDatabase")));
 
@@ -77,7 +77,7 @@ namespace AIITSM.Web
             // M1
             // -------------------------------------------------
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(
+                options.UseNpgsql(
                     builder.Configuration.GetConnectionString(
                         "DefaultConnection")));
 
