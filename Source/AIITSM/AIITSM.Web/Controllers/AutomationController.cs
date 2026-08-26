@@ -16,16 +16,25 @@ namespace AIITSM.Web.Controllers
             _automationService = automationService;
         }
 
+        private bool HasValidWebhookSecret()
+        {
+            var expected = Environment.GetEnvironmentVariable("N8N_WEBHOOK_SECRET");
+            var provided = Request.Headers["X-AIITSM-Webhook-Secret"].ToString();
+            return !string.IsNullOrEmpty(expected) && provided == expected;
+        }
+
         public IActionResult Index()
         {
             return View();
         }
 
+        [AllowAnonymous]
         [HttpPost]
         public async Task<IActionResult> SendAssignmentNotification(
             int incidentId,
             int assignedTo)
         {
+            if (!HasValidWebhookSecret()) return Unauthorized();
             await _automationService.SendAssignmentNotificationAsync(
                 incidentId,
                 assignedTo);
@@ -33,12 +42,14 @@ namespace AIITSM.Web.Controllers
             return Ok("Assignment notification sent successfully.");
         }
 
+        [AllowAnonymous]
         [HttpPost]
         public async Task<IActionResult> SendStatusChangeNotification(
             int incidentId,
             int userId,
             string newStatus)
         {
+            if (!HasValidWebhookSecret()) return Unauthorized();
             await _automationService.SendStatusChangeNotificationAsync(
                 incidentId,
                 userId,
@@ -47,11 +58,13 @@ namespace AIITSM.Web.Controllers
             return Ok("Status change notification sent successfully.");
         }
 
+        [AllowAnonymous]
         [HttpPost]
         public async Task<IActionResult> SendCriticalIncidentNotification(
             int incidentId,
             int userId)
         {
+            if (!HasValidWebhookSecret()) return Unauthorized();
             await _automationService.SendCriticalIncidentNotificationAsync(
                 incidentId,
                 userId);
@@ -59,6 +72,7 @@ namespace AIITSM.Web.Controllers
             return Ok("Critical incident notification sent successfully.");
         }
 
+        [AllowAnonymous]
         [HttpPost]
         public async Task<IActionResult> EscalateIncident(
             int incidentId,
@@ -66,6 +80,7 @@ namespace AIITSM.Web.Controllers
             int escalatedTo,
             string reason)
         {
+            if (!HasValidWebhookSecret()) return Unauthorized();
             await _automationService.EscalateIncidentAsync(
                 incidentId,
                 escalatedBy,
