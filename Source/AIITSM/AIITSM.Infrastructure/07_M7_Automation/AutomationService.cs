@@ -24,7 +24,7 @@ namespace AIITSM.Infrastructure._07_M7_Automation
                 IncidentId = incidentId,
                 Message = $"Incident {incidentId} has been assigned to you.",
                 IsRead = false,
-                CreatedAt = DateTime.Now
+                CreatedAt = DateTime.UtcNow
             };
 
             _context.Notifications.Add(notification);
@@ -43,7 +43,7 @@ namespace AIITSM.Infrastructure._07_M7_Automation
                 IncidentId = incidentId,
                 Message = $"Incident {incidentId} status changed to {newStatus}.",
                 IsRead = false,
-                CreatedAt = DateTime.Now
+                CreatedAt = DateTime.UtcNow
             };
 
             _context.Notifications.Add(notification);
@@ -61,7 +61,7 @@ namespace AIITSM.Infrastructure._07_M7_Automation
                 IncidentId = incidentId,
                 Message = $"Critical incident alert: Incident {incidentId} requires immediate attention.",
                 IsRead = false,
-                CreatedAt = DateTime.Now
+                CreatedAt = DateTime.UtcNow
             };
 
             _context.Notifications.Add(notification);
@@ -81,7 +81,7 @@ namespace AIITSM.Infrastructure._07_M7_Automation
                 EscalatedBy = escalatedBy,
                 EscalatedTo = escalatedTo,
                 Reason = reason,
-                EscalatedAt = DateTime.Now
+                EscalatedAt = DateTime.UtcNow
             };
 
             _context.Escalations.Add(escalation);
