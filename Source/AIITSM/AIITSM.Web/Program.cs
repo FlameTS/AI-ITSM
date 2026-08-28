@@ -8,7 +8,7 @@ using AIITSM.Application._04_M4_Administration.Interfaces;
 using AIITSM.Application._06_M6_AI.Providers;
 using AIITSM.Application._06_M6_AI.Services;
 using AIITSM.Application._07_M7_Automation;
-using AIITSM.Application.Common;
+using AIITSM.Infrastructure._06_M6_AI.Services;
 using AIITSM.Application.Reporting;
 using AIITSM.Infrastructure._02_M2_IncidentManagement;
 using AIITSM.Infrastructure._02_M2_IncidentManagement_2.Attachments;
@@ -20,7 +20,7 @@ using AIITSM.Infrastructure._04_M4_Administration.Services;
 using AIITSM.Infrastructure._05_M5_Reporting;
 using AIITSM.Infrastructure._06_M6_AI;
 using AIITSM.Infrastructure._06_M6_AI.Providers;
-using AIITSM.Infrastructure._06_M6_AI.Services;
+
 using AIITSM.Infrastructure._07_M7_Automation;
 using AIITSM.Web._01_M1_IdentityAccess.Services;
 using AIITSM.Web.Common;
@@ -43,9 +43,7 @@ namespace AIITSM.Web
     {
         public static async Task Main(string[] args)
         {
-            // -------------------------------------------------
-            // Environment configuration
-            // -------------------------------------------------
+            
             Env.TraversePath().Load();
 
             var geminiKey =
@@ -58,33 +56,27 @@ namespace AIITSM.Web
 
             var builder = WebApplication.CreateBuilder(args);
 
-            // -------------------------------------------------
-            // MVC
-            // -------------------------------------------------
             builder.Services.AddControllersWithViews();
 
-            // -------------------------------------------------
-            // Main project database
+            
             // M2 / M3 / M6
-            // -------------------------------------------------
+            
             builder.Services.AddDbContext<AIITSMDbContext>(options =>
                 options.UseNpgsql(
                     builder.Configuration.GetConnectionString(
                         "AIITSMDatabase")));
 
-            // -------------------------------------------------
-            // Identity database
+            
             // M1
-            // -------------------------------------------------
+            
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseNpgsql(
                     builder.Configuration.GetConnectionString(
                         "DefaultConnection")));
 
-            // -------------------------------------------------
-            // ASP.NET Core Identity
+            
             // M1
-            // -------------------------------------------------
+            
             builder.Services
                 .AddIdentity<ApplicationUser, ApplicationRole>(options =>
                 {
@@ -99,9 +91,7 @@ namespace AIITSM.Web
                 options.AccessDeniedPath = "/Account/AccessDenied";
             });
 
-            // -------------------------------------------------
-            // Current User / HTTP Context
-            // -------------------------------------------------
+            
             builder.Services.AddHttpContextAccessor();
 
             // M1 Identity current-user service
@@ -109,16 +99,15 @@ namespace AIITSM.Web
                 IdentityCurrentUserService,
                 CurrentUserService>();
 
-            // Temporary M2 current-user service
-            // TODO: Replace with proper integration when M2
-            // consumes the M1 identity current-user implementation.
+            // Temporary M2 current-user
+            
             builder.Services.AddScoped<
                 IncidentCurrentUserService,
                 DemoCurrentUserService>();
 
-            // -------------------------------------------------
+            
             // M6 - AI
-            // -------------------------------------------------
+            
             builder.Services.AddScoped<
                 IAIAnalysisService,
                 AIAnalysisService>();
@@ -127,9 +116,13 @@ namespace AIITSM.Web
                 IAIProvider,
                 GeminiProvider>();
 
-            // -------------------------------------------------
+            builder.Services.AddScoped<
+                IChatService,
+                ChatService > ();
+
+
             // M2 - Incident Management
-            // -------------------------------------------------
+
             builder.Services.AddScoped<
                 IIncidentService,
                 IncidentService>();
@@ -154,9 +147,9 @@ namespace AIITSM.Web
                 IIncidentFeedbackService,
                 IncidentFeedbackService>();
 
-            // -------------------------------------------------
-            // M3 - Agent Workflow
-            // -------------------------------------------------
+            
+            // M3 
+            
             builder.Services.AddScoped<
                 IIncidentAssignmentService,
                 IncidentAssignmentService>();
@@ -170,9 +163,9 @@ namespace AIITSM.Web
                 ICategoryAdministrationService,
                 CategoryAdministrationService>();
 
-            // -------------------------------------------------
+            
             // M5 - Reporting
-            // -------------------------------------------------
+            
             builder.Services.AddScoped<
                 IReportingService,
                 ReportingService>();
@@ -186,9 +179,9 @@ namespace AIITSM.Web
 
             
 
-            // -------------------------------------------------
+            
             // Seed Identity roles and administrator
-            // -------------------------------------------------
+            
             using (var scope = app.Services.CreateScope())
             {
                 var roleManager =
@@ -205,9 +198,9 @@ namespace AIITSM.Web
                     builder.Configuration);
             }
 
-            // -------------------------------------------------
+            
             // HTTP Pipeline
-            // -------------------------------------------------
+            
             if (!app.Environment.IsDevelopment())
             {
                 app.UseExceptionHandler("/Home/Error");
