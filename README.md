@@ -7,6 +7,10 @@ An intelligent IT service management platform that uses AI to classify, prioriti
 💻 **Repository:** [github.com/FlameTS/AI-ITSM](https://github.com/FlameTS/AI-ITSM)
 
 > ⚠️ Hosted on Render's free tier — the app may take 30–60 seconds to wake up on first load.
+Note:
+1. Main Contains the local version.
+2. feature/render-deploy contains the version deployed on render
+3. all others are intermediary files done by teammates.
 
 ---
 
